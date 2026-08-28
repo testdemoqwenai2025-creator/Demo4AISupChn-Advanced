@@ -47,6 +47,46 @@
         main { position: relative; z-index: 1; max-width: 1400px; margin: 0 auto; padding: 1.5rem; }
         
         .page-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem; }
+        
+        /* Page Navigation Buttons */
+        .page-nav-buttons {
+            display: flex;
+            gap: 10px;
+            width: 100%;
+            margin-bottom: 0.5rem;
+        }
+        .page-nav-buttons .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .page-nav-buttons .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(99,102,241,0.3);
+        }
+        
+        /* Theme Toggle */
+        .theme-toggle {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+        .theme-toggle:hover { border-color: var(--primary); }
+        .toggle-thumb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
         .page-title h1 { font-size: 1.75rem; font-weight: 700; display: flex; align-items: center; gap: 10px; }
         .live-badge { display: flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 9999px; background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.3); font-size: 12px; font-weight: 600; color: var(--primary); }
         .live-dot { width: 8px; height: 8px; background: var(--primary); border-radius: 50%; animation: livePulse 2s ease-in-out infinite; }
@@ -136,13 +176,28 @@
                 <a href="./events.html">Events</a>
                 <a href="./support.html">Support</a>
             </nav>
-            <div class="live-badge"><span class="live-dot"></span> LIVE</div>
+            <div class="header-actions" style="display:flex;align-items:center;gap:12px;">
+                <button class="theme-toggle" data-tooltip="Toggle dark/light mode" onclick="toggleTheme()">
+                    <div class="toggle-thumb"><i data-lucide="moon"></i></div>
+                </button>
+                <div class="live-badge"><span class="live-dot"></span> LIVE</div>
+            </div>
         </div>
     </header>
 
     <main>
         <!-- Page Header -->
         <div class="page-header">
+            <!-- Navigation Buttons -->
+            <div class="page-nav-buttons">
+                <button onclick="window.history.back()" class="btn btn-secondary btn-sm" data-tooltip="Go Back">
+                    <i data-lucide="arrow-left" style="width:16px;"></i> Back
+                </button>
+                <a href="./index.html" class="btn btn-primary btn-sm" data-tooltip="Home">
+                    <i data-lucide="home" style="width:16px;"></i> Home
+                </a>
+            </div>
+            
             <div class="page-title"><h1><i data-lucide="bar-chart-3" style="color:var(--primary);"></i> Analytics Dashboard</h1></div>
             <div class="live-badge"><span class="live-dot"></span> Real-Time Data</div>
         </div>
@@ -402,6 +457,44 @@
             },
             options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { r: { beginAtZero: true, max: 100, ticks: { stepSize: 20, font: { size: 10 } }, grid: { color: 'rgba(255,255,255,0.06)' }, angleLines: { color: 'rgba(255,255,255,0.06)' }, pointLabels: { font: { size: 11 } } } } }
         });
+        
+        // Theme Toggle Function
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            // Update icon
+            const icon = document.querySelector('.toggle-thumb i');
+            if (icon) {
+                icon.setAttribute('data-lucide', newTheme === 'dark' ? 'moon' : 'sun');
+                lucide.createIcons();
+            }
+            
+            showToast(`Switched to ${newTheme} mode`, 'success');
+        }
+        
+        // Load saved theme
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        });
+        
+        // Toast notification function
+        function showToast(message, type = 'info') {
+            const toast = document.createElement('div');
+            toast.className = `toast toast-${type}`;
+            toast.textContent = message;
+            toast.style.cssText = `
+                position: fixed; bottom: 20px; right: 20px; padding: 12px 24px;
+                border-radius: 8px; color: white; font-size: 14px; z-index: 10000;
+                animation: slideIn 0.3s ease; background: ${type === 'success' ? '#10b981' : type === 'error' ? '#ef4444' : '#6366f1'};
+            `;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        }
     </script>
 </body>
 </html>

@@ -132,27 +132,6 @@
 
         /* Page Header */
         .page-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem; }
-        
-        /* Page Navigation Buttons */
-        .page-nav-buttons {
-            display: flex;
-            gap: 10px;
-            width: 100%;
-            margin-bottom: 0.5rem;
-        }
-        .page-nav-buttons .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 13px;
-            padding: 8px 16px;
-            border-radius: 8px;
-            transition: var(--transition);
-        }
-        .page-nav-buttons .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(99,102,241,0.3);
-        }
         .page-title-section { display: flex; align-items: center; gap: 16px; }
         .page-title-icon { 
             width: 56px; height: 56px; border-radius: 16px;
@@ -622,16 +601,6 @@
     <main>
         <!-- Page Header -->
         <div class="page-header animate-in">
-            <!-- Navigation Buttons -->
-            <div class="page-nav-buttons">
-                <button onclick="window.history.back()" class="btn btn-secondary btn-sm" data-tooltip="Go Back">
-                    <i data-lucide="arrow-left" style="width:16px;"></i> Back
-                </button>
-                <a href="./index.html" class="btn btn-primary btn-sm" data-tooltip="Home">
-                    <i data-lucide="home" style="width:16px;"></i> Home
-                </a>
-            </div>
-            
             <div class="page-title-section">
                 <div class="page-title-icon">
                     <i data-lucide="layout-dashboard" style="width:28px;height:28px;color:var(--accent-1)"></i>

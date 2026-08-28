@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Command Center | AI Supply Chain Advanced - Real-Time Dashboard</title>
+    <meta name="description" content="AI-powered supply chain command center with real-time risk monitoring, interactive charts, and intelligent alerts.">
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* ===== RESET & BASE ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        /* ===== THEME SYSTEM ===== */
+        :root {
+            --bg-primary: #0f172a; --bg-secondary: #1e293b; --bg-tertiary: #334155;
+            --text-primary: #f8fafc; --text-secondary: #94a3b8; --text-muted: #64748b;
+            --accent-primary: #6366f1; --accent-cyan: #06b6d4; --accent-emerald: #10b981;
+            --accent-rose: #f43f5e; --accent-amber: #f59e0b; --accent-violet: #8b5cf6;
+            --glass-bg: rgba(255,255,255,0.05); --glass-border: rgba(255,255,255,0.1);
+            --shadow-glow: 0 0 40px rgba(99,102,241,0.15);
+            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #ffffff; --bg-secondary: #f8fafc; --bg-tertiary: #e2e8f0;
+            --text-primary: #0f172a; --text-secondary: #475569; --text-muted: #94a3b8;
+            --glass-bg: rgba(0,0,0,0.02); --glass-border: rgba(0,0,0,0.08);
+            --shadow-glow: 0 0 40px rgba(99,102,241,0.1);
+        }
+
+        body { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary) !important;
+            color: var(--text-primary) !important;
+            min-height: 100vh; overflow-x: hidden;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        /* Animated Background */
+        .bg-animation { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+        .bg-orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.15; animation: pulse 8s ease-in-out infinite; }
+        .bg-orb-1 { width: 500px; height: 500px; top: -100px; right: -100px; background: var(--accent-primary); }
+        .bg-orb-2 { width: 400px; height: 400px; top: 50%; left: -100px; background: var(--accent-cyan); animation-delay: 2s; }
+        .bg-orb-3 { width: 350px; height: 350px; bottom: -50px; right: 30%; background: var(--accent-violet); animation-delay: 4s; }
+        
+        @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 0.15; } 50% { transform: scale(1.1); opacity: 0.25; } }
+
+        /* ===== HEADER/NAVBAR ===== */
+        header { 
+            position: sticky; top: 0; z-index: 100; 
+            backdrop-filter: blur(20px); 
+            background: rgba(15, 23, 42, 0.85); 
+            border-bottom: 1px solid var(--glass-border);
+            transition: var(--transition-smooth);
+        }
+        [data-theme="light"] header { background: rgba(255,255,255,0.9); }
+
+        .header-content { max-width: 1920px; margin: 0 auto; padding: 0 2rem; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        
+        .logo-section { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
+        .logo-icon { 
+            width: 40px; height: 40px; border-radius: 12px; 
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-cyan)); 
+            display: flex; align-items: center; justify-content: center; 
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.35); 
+        }
+        .logo-text h1 { font-size: 18px; font-weight: 700; background: linear-gradient(90deg, var(--accent-primary), var(--accent-cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .logo-text p { font-size: 11px; color: var(--text-muted); }
+
+        nav { display: flex; gap: 4px; flex-wrap: wrap; }
+        nav a { 
+            padding: 8px 14px; border-radius: 8px; font-size: 13px; font-weight: 500; 
+            text-decoration: none; transition: var(--transition-smooth); 
+            color: var(--text-secondary); white-space: nowrap; 
+        }
+        nav a:hover { background: var(--glass-bg); color: var(--text-primary); }
+        nav a.active { 
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-cyan)); 
+            color: white; box-shadow: 0 4px 15px rgba(99, 102, 241, 0.35); 
+        }
+
+        .header-actions { display: flex; gap: 12px; align-items: center; }
+
+        /* Buttons */
+        .btn { 
+            display: inline-flex; align-items: center; gap: 6px; 
+            padding: 8px 16px; border-radius: 8px; font-size: 13px; 
+            font-weight: 600; border: none; cursor: pointer; 
+            transition: var(--transition-smooth); text-decoration: none; 
+        }
+        .btn-primary { background: linear-gradient(135deg, var(--accent-primary), var(--accent-cyan)); color: white; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(99,102,241,0.4); }
+        .btn-outline { background: transparent; border: 1px solid var(--glass-border); color: var(--text-primary); }
+        .btn-outline:hover { border-color: var(--accent-primary); background: rgba(99,102,241,0.1); }
+        .btn-sm { padding: 6px 12px; font-size: 12px; }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: relative; width: 52px; height: 26px;
+            background: var(--glass-bg); border: 1px solid var(--glass-border);
+            border-radius: 9999px; cursor: pointer; transition: var(--transition-smooth);
+            display: flex; align-items: center; padding: 3px;
+        }
+        .theme-toggle:hover { border-color: var(--accent-primary); }
+        .toggle-thumb {
+            width: 20px; height: 20px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-cyan));
+            transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 2px 10px rgba(99,102,241,0.4);
+        }
+        [data-theme="light"] .toggle-thumb { transform: translateX(26px); }
+        .toggle-thumb svg { width: 11px; height: 11px; color: white; }
+
+        /* Main Content */
+        main { position: relative; z-index: 1; max-width: 1600px; margin: 0 auto; padding: 1.5rem; }
+
+        /* Page Header */
+        .page-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem; }
+        .page-title { display: flex; align-items: center; gap: 12px; }
+        .page-title h1 { font-size: 1.75rem; font-weight: 700; }
+        
+        .live-badge { 
+            display: flex; align-items: center; gap: 6px; padding: 6px 14px; 
+            border-radius: 9999px; background: rgba(16, 185, 129, 0.15); 
+            border: 1px solid rgba(16, 185, 129, 0.3); 
+            font-size: 12px; font-weight: 600; color: var(--accent-emerald); 
+        }
+        .live-dot { 
+            width: 8px; height: 8px; background: var(--accent-emerald); 
+            border-radius: 50%; animation: livePulse 2s ease-in-out infinite; 
+        }
+        @keyframes livePulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.3); opacity: 0.7; } }
+
+        /* KPI Cards */
+        .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+        .kpi-card { 
+            background: var(--bg-secondary); backdrop-filter: blur(10px); 
+            border: 1px solid var(--glass-border); border-radius: 16px; 
+            padding: 1.25rem; transition: var(--transition-smooth);
+            cursor: default;
+        }
+        .kpi-card:hover { transform: translateY(-4px); border-color: var(--accent-primary); box-shadow: var(--shadow-glow); }
+        .kpi-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem; }
+        .kpi-icon { width: 42px; height: 42px; border-radius: 11px; display: flex; align-items: center; justify-content: center; }
+        .kpi-trend { display: flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 600; padding: 3px 8px; border-radius: 6px; }
+        .trend-up { background: rgba(239, 68, 68, 0.15); color: var(--accent-rose); }
+        .trend-down { background: rgba(34, 197, 94, 0.15); color: var(--accent-emerald); }
+        .kpi-value { font-size: 28px; font-weight: 700; margin-bottom: 2px; }
+        .kpi-label { font-size: 13px; color: var(--text-secondary); }
+
+        /* Charts Grid */
+        .charts-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-bottom: 1.5rem; }
+        @media (max-width: 1024px) { .charts-grid { grid-template-columns: 1fr; } }
+
+        .chart-card { 
+            background: var(--bg-secondary); backdrop-filter: blur(10px); 
+            border: 1px solid var(--glass-border); border-radius: 16px; padding: 1.5rem; 
+            transition: var(--transition-smooth);
+        }
+        .chart-card:hover { border-color: rgba(99,102,241,0.3); }
+        .chart-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+        .chart-title { display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600; }
+        .chart-badge { 
+            padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: 500; 
+            background: rgba(139, 92, 246, 0.15); color: var(--accent-violet); 
+            border: 1px solid rgba(139, 92, 246, 0.3); 
+        }
+        .chart-container { height: 280px; position: relative; }
+
+        .full-width { grid-column: span 2; }
+        @media (max-width: 1024px) { .full-width { grid-column: span 1; } }
+
+        /* Table Styles */
+        .table-card { 
+            background: var(--bg-secondary); backdrop-filter: blur(10px); 
+            border: 1px solid var(--glass-border); border-radius: 16px; overflow: hidden; 
+        }
+        .table-header { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--glass-border); 
+        }
+        .table-title { display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600; }
+        table { width: 100%; border-collapse: collapse; }
+        th { 
+            text-align: left; padding: 12px 1.25rem; font-size: 12px; font-weight: 600; 
+            color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px; 
+            background: var(--glass-bg); cursor: pointer; user-select: none;
+        }
+        th:hover { color: var(--accent-primary); }
+        td { padding: 14px 1.25rem; font-size: 13px; border-top: 1px solid var(--glass-border); }
+        tr:hover td { background: var(--glass-bg); }
+
+        .status-badge { 
+            display: inline-flex; align-items: center; gap: 5px; 
+            padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: 600; 
+        }
+        .status-active { background: rgba(34, 197, 94, 0.15); color: var(--accent-emerald); }
+        .status-warning { background: rgba(245, 158, 11, 0.15); color: var(--accent-amber); }
+        .status-danger { background: rgba(244, 63, 94, 0.15); color: var(--accent-rose); }
+
+        /* Risk Score Bar */
+        .risk-bar { height: 6px; background: var(--bg-tertiary); border-radius: 3px; overflow: hidden; }
+        .risk-fill { height: 100%; border-radius: 3px; transition: width 0.6s ease; }
+
+        /* SHAP Panel */
+        .shap-panel { 
+            background: var(--bg-secondary); border: 1px solid var(--glass-border); 
+            border-radius: 16px; padding: 1.5rem; 
+        }
+        .shap-item { margin-bottom: 1rem; }
+        .shap-label { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 6px; }
+        .shap-bar { height: 8px; background: var(--bg-tertiary); border-radius: 4px; overflow: hidden; }
+        .shap-fill { height: 100%; border-radius: 4px; transition: width 0.8s ease; }
+
+        /* Alerts Feed */
+        .alert-item { 
+            display: flex; align-items: center; gap: 12px; padding: 12px; 
+            background: var(--glass-bg); border-radius: 10px; margin-bottom: 8px;
+            transition: var(--transition-smooth); border: 1px solid transparent;
+        }
+        .alert-item:hover { border-color: var(--glass-border); transform: translateX(4px); }
+        .alert-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+        .alert-critical { background: var(--accent-rose); animation: alertPulse 1.5s infinite; }
+        .alert-warning { background: var(--accent-amber); }
+        .alert-info { background: var(--accent-cyan); }
+        @keyframes alertPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+        /* ===== MODAL SYSTEM ===== */
+        .modal-overlay {
+            position: fixed; inset: 0; background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(8px); z-index: 1000;
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; visibility: hidden; transition: all 0.3s ease;
+        }
+        .modal-overlay.active { opacity: 1; visibility: visible; }
+        .modal {
+            background: var(--bg-secondary); border: 1px solid var(--glass-border);
+            border-radius: 20px; padding: 2rem; max-width: 450px; width: 90%;
+            transform: scale(0.9) translateY(20px);
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5), var(--shadow-glow);
+        }
+        .modal-overlay.active .modal { transform: scale(1) translateY(0); }
+        .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+        .modal-title { font-size: 1.5rem; font-weight: 700; }
+        .modal-close {
+            background: none; border: none; color: var(--text-secondary); cursor: pointer;
+            padding: 8px; border-radius: 8px; transition: var(--transition-smooth);
+        }
+        .modal-close:hover { background: var(--glass-bg); color: var(--text-primary); }
+
+        /* Form Styles */
+        .form-group { margin-bottom: 1.25rem; }
+        .form-label { display: block; font-size: 13px; font-weight: 600; color: var(--text-secondary); margin-bottom: 0.5rem; }
+        .form-input {
+            width: 100%; padding: 12px 16px; background: var(--bg-tertiary);
+            border: 1px solid var(--glass-border); border-radius: 10px;
+            color: var(--text-primary); font-size: 14px; font-family: inherit;
+            transition: var(--transition-smooth); outline: none;
+        }
+        .form-input:focus { border-color: var(--accent-primary); box-shadow: 0 0 0 3px rgba(99,102,241,0.15); }
+        .form-input::placeholder { color: var(--text-muted); }
+        .btn-submit {
+            width: 100%; padding: 14px;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-cyan));
+            color: white; border: none; border-radius: 10px; font-size: 15px;
+            font-weight: 600; cursor: pointer; transition: var(--transition-smooth);
+        }
+        .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(99,102,241,0.35); }
+        .social-login { display: flex; gap: 10px; margin-top: 1rem; }
+        .social-btn {
+            flex: 1; padding: 10px; background: var(--bg-tertiary); border: 1px solid var(--glass-border);
+            border-radius: 10px; color: var(--text-primary); font-size: 13px; font-weight: 500;
+            cursor: pointer; transition: var(--transition-smooth); display: flex;
+            align-items: center; justify-content: center; gap: 8px;
+        }
+        .social-btn:hover { border-color: var(--accent-primary); background: rgba(99,102,241,0.1); }
+
+        /* Get Started Multi-Step */
+        .progress-steps { display: flex; justify-content: space-between; margin-bottom: 2rem; position: relative; }
+        .progress-steps::before {
+            content: ''; position: absolute; top: 50%; left: 0; right: 0;
+            height: 2px; background: var(--glass-border); transform: translateY(-50%); z-index: 0;
+        }
+        .step { display: flex; flex-direction: column; align-items: center; gap: 8px; position: relative; z-index: 1; }
+        .step-number {
+            width: 32px; height: 32px; border-radius: 50%; background: var(--bg-tertiary);
+            border: 2px solid var(--glass-border); display: flex; align-items: center;
+            justify-content: center; font-size: 13px; font-weight: 600; transition: var(--transition-smooth);
+        }
+        .step.active .step-number { background: linear-gradient(135deg, var(--accent-primary), var(--accent-cyan)); border-color: transparent; color: white; }
+        .step.completed .step-number { background: var(--accent-emerald); border-color: transparent; color: white; }
+        .step-label { font-size: 11px; color: var(--text-muted); font-weight: 500; }
+        .step.active .step-label { color: var(--accent-primary); }
+        .step-content { display: none; }
+        .step-content.active { display: block; animation: fadeIn 0.4s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed; bottom: 30px; right: 30px; width: 48px; height: 48px;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-cyan));
+            border: none; border-radius: 12px; color: white; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; visibility: hidden; transform: translateY(20px);
+            transition: all 0.3s ease; z-index: 999; box-shadow: 0 4px 20px rgba(99,102,241,0.4);
+        }
+        .back-to-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+        .back-to-top:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(99,102,241,0.5); }
+
+        /* Toast Notifications */
+        .toast-container { position: fixed; top: 80px; right: 20px; z-index: 2000; display: flex; flex-direction: column; gap: 10px; }
+        .toast {
+            background: var(--bg-secondary); border: 1px solid var(--glass-border);
+            border-radius: 12px; padding: 16px 20px; min-width: 300px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3); display: flex; align-items: center; gap: 12px;
+            transform: translateX(120%); transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        .toast.show { transform: translateX(0); }
+        .toast-success { border-left: 4px solid var(--accent-emerald); }
+        .toast-error { border-left: 4px solid var(--accent-rose); }
+        .toast-info { border-left: 4px solid var(--accent-cyan); }
+
+        /* Search Overlay */
+        .search-overlay {
+            position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(10px);
+            z-index: 1500; display: flex; align-items: flex-start; justify-content: center;
+            padding-top: 15vh; opacity: 0; visibility: hidden; transition: all 0.3s ease;
+        }
+        .search-overlay.active { opacity: 1; visibility: visible; }
+        .search-box-modal {
+            background: var(--bg-secondary); border: 1px solid var(--glass-border);
+            border-radius: 16px; width: 90%; max-width: 600px; overflow: hidden;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.5); transform: scale(0.95); transition: all 0.3s ease;
+        }
+        .search-overlay.active .search-box-modal { transform: scale(1); }
+        .search-input-modal {
+            width: 100%; padding: 20px 24px; background: transparent; border: none;
+            border-bottom: 1px solid var(--glass-border); color: var(--text-primary);
+            font-size: 18px; font-family: inherit; outline: none;
+        }
+        .search-results { max-height: 400px; overflow-y: auto; }
+        .search-result-item {
+            padding: 14px 24px; display: flex; align-items: center; gap: 12px;
+            cursor: pointer; transition: var(--transition-smooth); border-bottom: 1px solid var(--glass-border);
+            text-decoration: none; color: inherit;
+        }
+        .search-result-item:hover { background: var(--glass-bg); }
+
+        /* Tooltip */
+        [data-tooltip] { position: relative; }
+        [data-tooltip]::after {
+            content: attr(data-tooltip); position: absolute; bottom: 100%; left: 50%;
+            transform: translateX(-50%) translateY(-8px); padding: 6px 12px;
+            background: var(--bg-tertiary); border: 1px solid var(--glass-border);
+            border-radius: 6px; font-size: 12px; white-space: nowrap;
+            opacity: 0; visibility: hidden; transition: all 0.2s ease; pointer-events: none; z-index: 100;
+        }
+        [data-tooltip]:hover::after { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(-4px); }
+
+        kbd {
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 2px 6px; font-size: 11px; font-family: inherit;
+            background: var(--bg-tertiary); border: 1px solid var(--glass-border);
+            border-radius: 4px; color: var(--text-muted);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .header-content { padding: 0 1rem; }
+            nav { display: none; }
+            .kpi-grid { grid-template-columns: 1fr; }
+            .charts-grid { grid-template-columns: 1fr; }
+            .full-width { grid-column: span 1; }
+            .page-header { flex-direction: column; align-items: flex-start; }
+        }
+
+        /* Loading Spinner */
+        .spinner {
+            width: 18px; height: 18px; border: 2px solid transparent;
+            border-top-color: currentColor; border-radius: 50%;
+            animation: spin 0.8s linear infinite; display: inline-block;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* Scroll Animation Classes */
+        .animate-on-scroll { opacity: 0; transform: translateY(30px); transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+        .animate-on-scroll.animated { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+    <!-- Background Animation -->
+    <div class="bg-animation">
+        <div class="bg-orb bg-orb-1"></div>
+        <div class="bg-orb bg-orb-2"></div>
+        <div class="bg-orb bg-orb-3"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="./index.html" class="logo-section">
+                <div class="logo-icon"><i data-lucide="brain"></i></div>
+                <div class="logo-text">
+                    <h1>AI Supply Chain</h1>
+                    <p>Advanced Platform</p>
+                </div>
+            </a>
+
+            <nav>
+                <a href="./index.html">Home</a>
+                <a href="./about.html">About</a>
+                <a href="./command-center.html" class="active">Command Center ⭐</a>
+                <a href="./dashboard.html">Dashboard</a>
+                <a href="./intelligence.html">Intelligence</a>
+                <a href="./platform.html">Platform</a>
+                <a href="./product.html">Product</a>
+                <a href="./customers.html">Customers</a>
+                <a href="./support.html">Support</a>
+            </nav>
+
+            <div class="header-actions">
+                <button onclick="openModal('loginModal')" class="btn btn-outline btn-sm">
+                    <i data-lucide="log-in" style="width:14px;"></i> Sign In
+                </button>
+                <button onclick="openModal('getStartedModal')" class="btn btn-primary btn-sm">
+                    <i data-lucide="rocket" style="width:14px;"></i> Get Started
+                </button>
+                
+                <div class="theme-toggle" data-tooltip="Toggle theme" onclick="toggleTheme()">
+                    <div class="toggle-thumb">
+                        <i data-lucide="moon"></i>
+                    </div>
+                </div>
+
+                <button onclick="toggleSearch()" class="btn btn-outline btn-sm" style="padding:8px;" data-tooltip="Search (⌘K)">
+                    <i data-lucide="search" style="width:14px;"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Page Header -->
+        <div class="page-header animate-on-scroll">
+            <div class="page-title">
+                <h1>Command Center</h1>
+                <div class="live-badge">
+                    <span class="live-dot"></span>
+                    Live Monitoring
+                </div>
+            </div>
+            <div style="display:flex;gap:10px;">
+                <button class="btn btn-outline btn-sm" onclick="exportData()">
+                    <i data-lucide="download" style="width:14px;"></i> Export
+                </button>
+                <button class="btn btn-primary btn-sm" onclick="refreshData()">
+                    <i data-lucide="refresh-cw" style="width:14px;"></i> Refresh
+                </button>
+            </div>
+        </div>
+
+        <!-- KPI Cards -->
+        <div class="kpi-grid">
+            <div class="kpi-card animate-on-scroll">
+                <div class="kpi-header">
+                    <div class="kpi-icon" style="background:rgba(244,63,94,0.15);">
+                        <i data-lucide="alert-triangle" style="color:#f43f5e"></i>
+                    </div>
+                    <span class="kpi-trend trend-up">+12%</span>
+                </div>
+                <div class="kpi-value counter" data-target="24">24</div>
+                <div class="kpi-label">Active Risks</div>
+            </div>
+
+            <div class="kpi-card animate-on-scroll">
+                <div class="kpi-header">
+                    <div class="kpi-icon" style="background:rgba(16,185,129,0.15);">
+                        <i data-lucide="shield" style="color:#10b981"></i>
+                    </div>
+                    <span class="kpi-trend trend-up">+23</span>
+                </div>
+                <div class="kpi-value counter" data-target="847">847</div>
+                <div class="kpi-label">Suppliers Monitored</div>
+            </div>
+
+            <div class="kpi-card animate-on-scroll">
+                <div class="kpi-header">
+                    <div class="kpi-icon" style="background:rgba(139,92,246,0.15);">
+                        <i data-lucide="brain" style="color:#8b5cf6"></i>
+                    </div>
+                    <span class="kpi-trend trend-up">+2.1%</span>
+                </div>
+                <div class="kpi-value">94.2%</div>
+                <div class="kpi-label">AI Accuracy Rate</div>
+            </div>
+
+            <div class="kpi-card animate-on-scroll">
+                <div class="kpi-header">
+                    <div class="kpi-icon" style="background:rgba(6,182,212,0.15);">
+                        <i data-lucide="zap" style="color:#06b6d4"></i>
+                    </div>
+                    <span class="kpi-trend trend-down">-0.3s</span>
+                </div>
+                <div class="kpi-value">1.8s</div>
+                <div class="kpi-label">Avg Response Time</div>
+            </div>
+        </div>
+
+        <!-- Charts Row -->
+        <div class="charts-grid">
+            <!-- Risk Trend Chart -->
+            <div class="chart-card full-width animate-on-scroll">
+                <div class="chart-header">
+                    <div class="chart-title">
+                        <i data-lucide="activity" style="color:var(--accent-emerald)"></i>
+                        Risk Trend Analysis (Live)
+                    </div>
+                    <span class="chart-badge">
+                        <span class="live-dot"></span> Real-time
+                    </span>
+                </div>
+                <div class="chart-container">
+                    <canvas id="riskTrendChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Supplier Distribution -->
+            <div class="chart-card animate-on-scroll">
+                <div class="chart-header">
+                    <div class="chart-title">
+                        <i data-lucide="pie-chart" style="color:var(--accent-violet)"></i>
+                        Supplier Distribution
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="supplierDistChart"></canvas>
+                </div>
+            </div>
+
+            <!-- SHAP Explanation Panel -->
+            <div class="shap-panel animate-on-scroll">
+                <div class="chart-header">
+                    <div class="chart-title">
+                        <i data-lucide="brain" style="color:var(--accent-violet)"></i>
+                        SHAP Feature Attribution
+                    </div>
+                </div>
+                <div style="margin-top:1rem;">
+                    <div class="shap-item">
+                        <div class="shap-label">
+                            <span>Financial Health</span>
+                            <span style="color:var(--accent-rose)">+35%</span>
+                        </div>
+                        <div class="shap-bar">
+                            <div class="shap-fill" style="width:35%;background:linear-gradient(90deg,#f43f5e,#f97316)"></div>
+                        </div>
+                    </div>
+                    <div class="shap-item">
+                        <div class="shap-label">
+                            <span>Geopolitical Risk</span>
+                            <span style="color:var(--accent-rose)">+28%</span>
+                        </div>
+                        <div class="shap-bar">
+                            <div class="shap-fill" style="width:28%;background:linear-gradient(90deg,#f97316,#f59e0b)"></div>
+                        </div>
+                    </div>
+                    <div class="shap-item">
+                        <div class="shap-label">
+                            <span>Operational Metrics</span>
+                            <span style="color:var(--accent-amber)">+22%</span>
+                        </div>
+                        <div class="shap-bar">
+                            <div class="shap-fill" style="width:22%;background:linear-gradient(90deg,#f59e0b,#eab308)"></div>
+                        </div>
+                    </div>
+                    <div class="shap-item">
+                        <div class="shap-label">
+                            <span>Environmental Factors</span>
+                            <span style="color:var(--accent-emerald)">+15%</span>
+                        </div>
+                        <div class="shap-bar">
+                            <div class="shap-fill" style="width:15%;background:linear-gradient(90deg,#10b981,#06b6d4)"></div>
+                        </div>
+                    </div>
+                    <div class="shap-item">
+                        <div class="shap-label">
+                            <span>Compliance History</span>
+                            <span style="color:var(--accent-cyan)">-8%</span>
+                        </div>
+                        <div class="shap-bar">
+                            <div class="shap-fill" style="width:8%;background:linear-gradient(90deg,#06b6d4,#6366f1);margin-left:auto"></div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top:1.5rem;padding:1rem;background:var(--glass-bg);border-radius:10px;">
+                        <div style="display:flex;justify-content:space-between;align-items:center;">
+                            <span style="font-weight:600;">Predicted Risk Probability</span>
+                            <span style="font-size:1.5rem;font-weight:700;color:var(--accent-rose)">78.4%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Supplier Table -->
+        <div class="table-card animate-on-scroll" style="margin-top:1.5rem;">
+            <div class="table-header">
+                <div class="table-title">
+                    <i data-lucide="database" style="color:var(--accent-cyan)"></i>
+                    Supplier Risk Monitor
+                </div>
+                <div style="display:flex;gap:8px;">
+                    <select class="form-input" style="width:auto;padding:6px 12px;font-size:12px;">
+                        <option>All Tiers</option>
+                        <option>Tier 1</option>
+                        <option>Tier 2</option>
+                        <option>Tier 3</option>
+                    </select>
+                    <select class="form-input" style="width:auto;padding:6px 12px;font-size:12px;">
+                        <option>All Regions</option>
+                        <option>APAC</option>
+                        <option>Europe</option>
+                        <option>N. America</option>
+                    </select>
+                </div>
+            </div>
+            <table id="supplierTable">
+                <thead>
+                    <tr>
+                        <th onclick="sortTable(0)">Supplier ↑↓</th>
+                        <th onclick="sortTable(1)">Region ↑↓</th>
+                        <th onclick="sortTable(2)">Tier ↑↓</th>
+                        <th onclick="sortTable(3)">Risk Score ↑↓</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>TechComp Asia</strong></td>
+                        <td>APAC</td>
+                        <td><span class="status-badge status-active">Tier 1</span></td>
+                        <td>
+                            <div style="display:flex;align-items:center;gap:8px;">
+                                <div class="risk-bar" style="width:60px;"><div class="risk-fill" style="width:78%;background:var(--accent-amber)"></div></div>
+                                <span>78</span>
+                            </div>
+                        </td>
+                        <td><span class="status-badge status-active">Active</span></td>
+                        <td><button class="btn btn-outline btn-sm" onclick="viewSupplier('TechComp Asia')">View</button></td>
+                    </tr>
+                    <tr>
+                        <td><strong>EuroManufacturing GmbH</strong></td>
+                        <td>Europe</td>
+                        <td><span class="status-badge status-active">Tier 1</span></td>
+                        <td>
+                            <div style="display:flex;align-items:center;gap:8px;">
+                                <div class="risk-bar" style="width:60px;"><div class="risk-fill" style="width:45%;background:var(--accent-emerald)"></div></div>
+                                <span>45</span>
+                            </div>
+                        </td>
+                        <td><span class="status-badge status-warning">Under Review</span></td>
+                        <td><button class="btn btn-outline btn-sm" onclick="viewSupplier('EuroManufacturing')">View</button></td>
+                    </tr>
+                    <tr>
+                        <td><strong>SemiconTech Inc.</strong></td>
+                        <td>N. America</td>
+                        <td><span class="status-badge status-active">Tier 1</span></td>
+                        <td>
+                            <div style="display:flex;align-items:center;gap:8px;">
+                                <div class="risk-bar" style="width:60px;"><div class="risk-fill" style="width:92%;background:var(--accent-rose)"></div></div>
+                                <span>92</span>
+                            </div>
+                        </td>
+                        <td><span class="status-badge status-danger">Critical</span></td>
+                        <td><button class="btn btn-outline btn-sm" onclick="viewSupplier('SemiconTech')">View</button></td>
+                    </tr>
+                    <tr>
+                        <td><strong>GlobalLogistics Co</strong></td>
+                        <td>APAC</td>
+                        <td><span class="status-badge status-active">Tier 2</span></td>
+                        <td>
+                            <div style="display:flex;align-items:center;gap:8px;">
+                                <div class="risk-bar" style="width:60px;"><div class="risk-fill" style="width:34%;background:var(--accent-emerald)"></div></div>
+                                <span>34</span>
+                            </div>
+                        </td>
+                        <td><span class="status-badge status-active">Active</span></td>
+                        <td><button class="btn btn-outline btn-sm" onclick="viewSupplier('GlobalLogistics')">View</button></td>
+                    </tr>
+                    <tr>
+                        <td><strong>PrecisionParts Ltd</strong></td>
+                        <td>Europe</td>
+                        <td><span class="status-badge status-active">Tier 2</span></td>
+                        <td>
+                            <div style="display:flex;align-items:center;gap:8px;">
+                                <div class="risk-bar" style="width:60px;"><div class="risk-fill" style="width:56%;background:var(--accent-amber)"></div></div>
+                                <span>56</span>
+                            </div>
+                        </td>
+                        <td><span class="status-badge status-active">Active</span></td>
+                        <td><button class="btn btn-outline btn-sm" onclick="viewSupplier('PrecisionParts')">View</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Live Alerts Feed -->
+        <div class="charts-grid" style="margin-top:1.5rem;">
+            <div class="chart-card animate-on-scroll">
+                <div class="chart-header">
+                    <div class="chart-title">
+                        <i data-lucide="bell" style="color:var(--accent-rose)"></i>
+                        Live Alert Feed
+                    </div>
+                    <span class="chart-badge" style="background:rgba(244,63,94,0.15);color:var(--accent-rose)">
+                        4 Active Alerts
+                    </span>
+                </div>
+                <div style="max-height:300px;overflow-y:auto;">
+                    <div class="alert-item">
+                        <span class="alert-dot alert-critical"></span>
+                        <div style="flex:1;">
+                            <div style="font-weight:600;font-size:13px;">SemiconTech - Critical Disruption Risk</div>
+                            <div style="font-size:12px;color:var(--text-muted);">Supply constraint detected in semiconductor line</div>
+                        </div>
+                        <span style="font-size:11px;color:var(--text-muted);white-space:nowrap;">2m ago</span>
+                    </div>
+                    <div class="alert-item">
+                        <span class="alert-dot alert-critical"></span>
+                        <div style="flex:1;">
+                            <div style="font-weight:600;font-size:13px;">TechComp Asia - Potential Disruption</div>
+                            <div style="font-size:12px;color:var(--text-muted);">Geopolitical tension affecting shipping routes</div>
+                        </div>
+                        <span style="font-size:11px;color:var(--text-muted);white-space:nowrap;">15m ago</span>
+                    </div>
+                    <div class="alert-item">
+                        <span class="alert-dot alert-warning"></span>
+                        <div style="flex:1;">
+                            <div style="font-weight:600;font-size:13px;">EuroManufacturing - Financial Stress</div>
+                            <div style="font-size:12px;color:var(--text-muted);">Credit score downgrade detected</div>
+                        </div>
+                        <span style="font-size:11px;color:var(--text-muted);white-space:nowrap;">32m ago</span>
+                    </div>
+                    <div class="alert-item">
+                        <span class="alert-dot alert-info"></span>
+                        <div style="flex:1;">
+                            <div style="font-weight:600;font-size:13px;">GlobalLogistics - Route Optimization</div>
+                            <div style="font-size:12px;color:var(--text-muted);">AI recommends alternative shipping route</div>
+                        </div>
+                        <span style="font-size:11px;color:var(--text-muted);white-space:nowrap;">1h ago</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Regional Overview -->
+            <div class="chart-card animate-on-scroll">
+                <div class="chart-header">
+                    <div class="chart-title">
+                        <i data-lucide="globe" style="color:var(--accent-cyan)"></i>
+                        Regional Overview
+                    </div>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:12px;margin-top:1rem;">
+                    <div style="padding:12px;background:var(--glass-bg);border-radius:10px;">
+                        <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+                            <span style="font-weight:600;font-size:13px;">APAC</span>
+                            <span style="color:var(--accent-amber);font-weight:600;">62 Risk Score</span>
+                        </div>
+                        <div class="risk-bar"><div class="risk-fill" style="width:62%;background:var(--accent-amber)"></div></div>
+                        <div style="display:flex;justify-content:space-between;margin-top:4px;font-size:11px;color:var(--text-muted);">
+                            <span>342 suppliers</span>
+                            <span>High activity</span>
+                        </div>
+                    </div>
+                    <div style="padding:12px;background:var(--glass-bg);border-radius:10px;">
+                        <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+                            <span style="font-weight:600;font-size:13px;">Europe</span>
+                            <span style="color:var(--accent-emerald);font-weight:600;">38 Risk Score</span>
+                        </div>
+                        <div class="risk-bar"><div class="risk-fill" style="width:38%;background:var(--accent-emerald)"></div></div>
+                        <div style="display:flex;justify-content:space-between;margin-top:4px;font-size:11px;color:var(--text-muted);">
+                            <span>256 suppliers</span>
+                            <span>Stable</span>
+                        </div>
+                    </div>
+                    <div style="padding:12px;background:var(--glass-bg);border-radius:10px;">
+                        <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+                            <span style="font-weight:600;font-size:13px;">N. America</span>
+                            <span style="color:var(--accent-emerald);font-weight:600;">25 Risk Score</span>
+                        </div>
+                        <div class="risk-bar"><div class="risk-fill" style="width:25%;background:var(--accent-emerald)"></div></div>
+                        <div style="display:flex;justify-content:space-between;margin-top:4px;font-size:11px;color:var(--text-muted);">
+                            <span>189 suppliers</span>
+                            <span>Optimal</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Login Modal -->
+    <div class="modal-overlay" id="loginModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 class="modal-title">Welcome Back</h2>
+                <button class="modal-close" onclick="closeModal('loginModal')">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            <form onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" class="form-input" placeholder="you@company.com" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-input" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn-submit">Sign In</button>
+                <p style="text-align:center;margin-top:1rem;font-size:13px;color:var(--text-muted)">
+                    <a href="#" style="color:var(--accent-primary);text-decoration:none;" onclick="showToast('Password reset link sent!','info');return false;">Forgot password?</a>
+                </p>
+                <div class="social-login">
+                    <button type="button" class="social-btn">
+                        <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                        Google
+                    </button>
+                    <button type="button" class="social-btn">
+                        <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#00A4EF" d="M11.4 24H0V12.6h11.4V24zM24 24H12.6V12.6H24V24zM11.4 11.4H0V0h11.4v11.4zM24 11.4H12.6V0H24v11.4z"/></svg>
+                        Microsoft
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Get Started Modal -->
+    <div class="modal-overlay" id="getStartedModal">
+        <div class="modal" style="max-width:550px;">
+            <div class="modal-header">
+                <h2 class="modal-title">Get Started Free</h2>
+                <button class="modal-close" onclick="closeModal('getStartedModal')">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            
+            <div class="progress-steps">
+                <div class="step active" data-step="1">
+                    <div class="step-number">1</div>
+                    <span class="step-label">Account</span>
+                </div>
+                <div class="step" data-step="2">
+                    <div class="step-number">2</div>
+                    <span class="step-label">Company</span>
+                </div>
+                <div class="step" data-step="3">
+                    <div class="step-number">3</div>
+                    <span class="step-label">Goals</span>
+                </div>
+                <div class="step" data-step="4">
+                    <div class="step-number">4</div>
+                    <span class="step-label">Done!</span>
+                </div>
+            </div>
+
+            <div class="step-content active" data-step="1">
+                <div class="form-group">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" class="form-input" placeholder="John Smith" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Work Email</label>
+                    <input type="email" class="form-input" placeholder="john@company.com" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-input" placeholder="Min 8 characters" required>
+                </div>
+                <button class="btn-submit" onclick="nextStep()">Continue →</button>
+            </div>
+
+            <div class="step-content" data-step="2">
+                <div class="form-group">
+                    <label class="form-label">Company Name</label>
+                    <input type="text" class="form-input" placeholder="Acme Corp" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Industry</label>
+                    <select class="form-input" required>
+                        <option value="">Select industry...</option>
+                        <option>Manufacturing</option>
+                        <option>Technology & Electronics</option>
+                        <option>Automotive</option>
+                        <option>Retail & Consumer</option>
+                        <option>Healthcare & Pharma</option>
+                        <option>Aerospace & Defense</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Team Size</label>
+                    <select class="form-input" required>
+                        <option value="">Select size...</option>
+                        <option>1-10 employees</option>
+                        <option>11-50 employees</option>
+                        <option>51-200 employees</option>
+                        <option>201-1000 employees</option>
+                        <option>1000+ employees</option>
+                    </select>
+                </div>
+                <div style="display:flex;gap:10px;">
+                    <button class="btn-submit" style="background:var(--bg-tertiary)" onclick="prevStep()">← Back</button>
+                    <button class="btn-submit" onclick="nextStep()" style="flex:1">Continue →</button>
+                </div>
+            </div>
+
+            <div class="step-content" data-step="3">
+                <div class="form-group">
+                    <label class="form-label">Primary Use Case (select all that apply)</label>
+                    <div style="display:flex;flex-direction:column;gap:10px;">
+                        <label style="display:flex;align-items:center;gap:10px;padding:12px;background:var(--bg-tertiary);border-radius:10px;cursor:pointer;">
+                            <input type="checkbox" name="usecase" value="risk"> Supply Chain Risk Management
+                        </label>
+                        <label style="display:flex;align-items:center;gap:10px;padding:12px;background:var(--bg-tertiary);border-radius:10px;cursor:pointer;">
+                            <input type="checkbox" name="usecase" value="compliance"> Regulatory Compliance
+                        </label>
+                        <label style="display:flex;align-items:center;gap:10px;padding:12px;background:var(--bg-tertiary);border-radius:10px;cursor:pointer;">
+                            <input type="checkbox" name="usecase" value="supplier"> Supplier Intelligence
+                        </label>
+                        <label style="display:flex;align-items:center;gap:10px;padding:12px;background:var(--bg-tertiary);border-radius:10px;cursor:pointer;">
+                            <input type="checkbox" name="usecase" value="forecasting"> Demand Forecasting
+                        </label>
+                    </div>
+                </div>
+                <div style="display:flex;gap:10px;">
+                    <button class="btn-submit" style="background:var(--bg-tertiary)" onclick="prevStep()">← Back</button>
+                    <button class="btn-submit" onclick="nextStep()" style="flex:1">Complete Setup 🎉</button>
+                </div>
+            </div>
+
+            <div class="step-content" data-step="4">
+                <div style="text-align:center;padding:2rem 0;">
+                    <div style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--accent-emerald),var(--accent-cyan));display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;">
+                        <i data-lucide="check" style="width:40px;height:40px;color:white;"></i>
+                    </div>
+                    <h3 style="font-size:1.5rem;font-weight:700;margin-bottom:0.5rem;">You're All Set! 🚀</h3>
+                    <p style="color:var(--text-secondary);margin-bottom:1.5rem;">Your AI Supply Chain workspace is ready.</p>
+                    <div style="background:var(--bg-tertiary);border-radius:12px;padding:1.25rem;text-align:left;margin-bottom:1.5rem;">
+                        <p style="font-size:13px;color:var(--text-muted);margin-bottom:0.75rem;">What happens next:</p>
+                        <ul style="font-size:13px;display:flex;flex-direction:column;gap:8px;list-style:none;">
+                            <li style="display:flex;align-items:center;gap:8px;"><i data-lucide="mail" style="width:16px;color:var(--accent-primary);"></i> Confirmation email sent</li>
+                            <li style="display:flex;align-items:center;gap:8px;"><i data-lucide="calendar" style="width:16px;color:var(--accent-primary);"></i> Onboarding call scheduled</li>
+                            <li style="display:flex;align-items:center;gap:8px;"><i data-lucide="video" style="width:16px;color:var(--accent-primary);"></i> Platform walkthrough video</li>
+                        </ul>
+                    </div>
+                    <button class="btn-submit" onclick="closeModal('getStartedModal')">Go to Dashboard →</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="searchOverlay" onclick="if(event.target===this)toggleSearch()">
+        <div class="search-box-modal">
+            <input type="text" class="search-input-modal" placeholder="Search pages, features, documentation... (Press Esc to close)">
+            <div class="search-results">
+                <a href="./index.html" class="search-result-item">
+                    <i data-lucide="home" style="color:var(--accent-primary)"></i>
+                    <div><strong>Home</strong><br><small>Main dashboard overview</small></div>
+                </a>
+                <a href="./command-center.html" class="search-result-item">
+                    <i data-lucide="layout-dashboard" style="color:var(--accent-cyan)"></i>
+                    <div><strong>Command Center</strong><br><small>Real-time operations hub</small></div>
+                </a>
+                <a href="./dashboard.html" class="search-result-item">
+                    <i data-lucide="bar-chart-3" style="color:var(--accent-emerald)"></i>
+                    <div><strong>Analytics Dashboard</strong><br><small>KPIs and metrics</small></div>
+                </a>
+                <a href="./intelligence.html" class="search-result-item">
+                    <i data-lucide="brain" style="color:var(--accent-violet)"></i>
+                    <div><strong>AI Intelligence</strong><br><small>ML models and SHAP</small></div>
+                </a>
+                <a href="./platform.html" class="search-result-item">
+                    <i data-lucide="server" style="color:var(--accent-amber)"></i>
+                    <div><strong>Platform</strong><br><small>Architecture and integrations</small></div>
+                </a>
+                <a href="./about.html" class="search-result-item">
+                    <i data-lucide="users" style="color:var(--accent-rose)"></i>
+                    <div><strong>About Us</strong><br><small>Company and team</small></div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container"></div>
+
+    <!-- JavaScript -->
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // ===== THEME MANAGEMENT =====
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            const thumb = document.querySelector('.toggle-thumb');
+            thumb.innerHTML = newTheme === 'dark' 
+                ? '<i data-lucide="moon"></i>' 
+                : '<i data-lucide="sun"></i>';
+            lucide.createIcons();
+            
+            showToast(`Switched to ${newTheme} mode`, 'info');
+            
+            // Update charts for new theme
+            updateChartsTheme();
+        }
+
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+
+        // ===== MODAL SYSTEM =====
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal-overlay.active').forEach(modal => {
+                    modal.classList.remove('active');
+                });
+                document.body.style.overflow = '';
+                
+                const searchOverlay = document.getElementById('searchOverlay');
+                if (searchOverlay?.classList.contains('active')) {
+                    searchOverlay.classList.remove('active');
+                }
+            }
+            
+            // Cmd/Ctrl + K for search
+            if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+                e.preventDefault();
+                toggleSearch();
+            }
+        });
+
+        // ===== LOGIN FORM =====
+        function handleLogin(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('.btn-submit');
+            const originalText = btn.innerHTML;
+            
+            btn.innerHTML = '<span class="spinner"></span> Signing in...';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                showToast('✅ Welcome back! Redirecting...', 'success');
+                closeModal('loginModal');
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+                e.target.reset();
+            }, 2000);
+        }
+
+        // ===== GET STARTED MULTI-STEP FLOW =====
+        let currentStep = 1;
+
+        function nextStep() {
+            if (currentStep < 4) {
+                document.querySelector(`.step-content[data-step="${currentStep}"]`)?.classList.remove('active');
+                document.querySelector(`.step[data-step="${currentStep}"]`)?.classList.remove('active');
+                document.querySelector(`.step[data-step="${currentStep}"]`)?.classList.add('completed');
+                
+                currentStep++;
+                
+                document.querySelector(`.step-content[data-step="${currentStep}"]`)?.classList.add('active');
+                document.querySelector(`.step[data-step="${currentStep}"]`)?.classList.add('active');
+            } else {
+                showToast('🎉 Account created successfully!', 'success');
+                closeModal('getStartedModal');
+                resetGetStartedForm();
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 1) {
+                document.querySelector(`.step-content[data-step="${currentStep}"]`)?.classList.remove('active');
+                document.querySelector(`.step[data-step="${currentStep}"]`)?.classList.remove('active');
+                document.querySelector(`.step[data-step="${currentStep}"]`)?.classList.remove('completed');
+                
+                currentStep--;
+                
+                document.querySelector(`.step-content[data-step="${currentStep}"]`)?.classList.add('active');
+                document.querySelector(`.step[data-step="${currentStep}"]`)?.classList.add('active');
+            }
+        }
+
+        function resetGetStartedForm() {
+            currentStep = 1;
+            document.querySelectorAll('.step').forEach((s, i) => {
+                s.classList.remove('active', 'completed');
+                if (i === 0) s.classList.add('active');
+            });
+            document.querySelectorAll('.step-content').forEach((c, i) => {
+                c.classList.remove('active');
+                if (i === 0) c.classList.add('active');
+            });
+        }
+
+        // ===== SEARCH OVERLAY =====
+        function toggleSearch() {
+            const overlay = document.getElementById('searchOverlay');
+            overlay?.classList.toggle('active');
+            if (overlay?.classList.contains('active')) {
+                overlay.querySelector('input')?.focus();
+            }
+        }
+
+        // ===== TOAST NOTIFICATIONS =====
+        function showToast(message, type = 'info') {
+            const container = document.querySelector('.toast-container');
+            
+            const toast = document.createElement('div');
+            toast.className = `toast toast-${type}`;
+            
+            const icons = { success: 'check-circle', error: 'x-circle', info: 'info' };
+            toast.innerHTML = `
+                <i data-lucide="${icons[type]}"></i>
+                <span>${message}</span>
+            `;
+            
+            container.appendChild(toast);
+            lucide.createIcons();
+            
+            requestAnimationFrame(() => toast.classList.add('show'));
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => toast.remove(), 400);
+            }, 4000);
+        }
+
+        // ===== SCROLL ANIMATIONS =====
+        function initScrollAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                        
+                        // Animate counters
+                        const counter = entry.target.querySelector('.counter');
+                        if (counter && !counter.dataset.animated) {
+                            animateCounter(counter);
+                            counter.dataset.animated = 'true';
+                        }
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+            
+            document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+        }
+
+        function animateCounter(element) {
+            const target = parseInt(element.dataset.target || element.textContent);
+            const duration = 2000;
+            const startTime = performance.now();
+            
+            function update(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const easeOut = 1 - Math.pow(1 - progress, 3);
+                const current = Math.floor(target * easeOut);
+                
+                element.textContent = current.toLocaleString();
+                
+                if (progress < 1) requestAnimationFrame(update);
+            }
+            
+            requestAnimationFrame(update);
+        }
+
+        // ===== BACK TO TOP BUTTON =====
+        function initBackToTop() {
+            const btn = document.createElement('button');
+            btn.className = 'back-to-top';
+            btn.innerHTML = '<i data-lucide="chevron-up"></i>';
+            btn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+            document.body.appendChild(btn);
+            lucide.createIcons();
+            
+            window.addEventListener('scroll', () => {
+                btn.classList.toggle('visible', window.scrollY > 400);
+            }, { passive: true });
+        }
+
+        // ===== CHARTS INITIALIZATION =====
+        let riskTrendChart, supplierDistChart;
+
+        function initCharts() {
+            // Risk Trend Chart
+            const riskCtx = document.getElementById('riskTrendChart').getContext('2d');
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            const textColor = isDark ? '#94a3b8' : '#64748b';
+            const gridColor = isDark ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.05)';
+            
+            riskTrendChart = new Chart(riskCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
+                    datasets: [{
+                        label: 'Risk Index',
+                        data: [45, 52, 38, 65, 58, 42, 72, 68],
+                        borderColor: '#10b981',
+                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                        borderWidth: 2,
+                        fill: true,
+                        tension: 0.4,
+                        pointRadius: 4,
+                        pointHoverRadius: 6,
+                        pointBackgroundColor: '#10b981'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: isDark ? '#1e293b' : '#fff',
+                            titleColor: textColor,
+                            bodyColor: textColor,
+                            borderColor: isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)',
+                            borderWidth: 1,
+                            cornerRadius: 8,
+                            padding: 12
+                        }
+                    },
+                    scales: {
+                        x: {
+                            ticks: { color: textColor },
+                            grid: { color: gridColor }
+                        },
+                        y: {
+                            ticks: { color: textColor },
+                            grid: { color: gridColor }
+                        }
+                    }
+                }
+            });
+
+            // Supplier Distribution Chart
+            const distCtx = document.getElementById('supplierDistChart').getContext('2d');
+            supplierDistChart = new Chart(distCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Low Risk', 'Medium', 'High', 'Critical'],
+                    datasets: [{
+                        data: [35, 30, 22, 13],
+                        backgroundColor: ['#10b981', '#f59e0b', '#f97316', '#f43f5e'],
+                        borderWidth: 0,
+                        hoverOffset: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: { color: textColor, padding: 16, usePointStyle: true }
+                        },
+                        tooltip: {
+                            backgroundColor: isDark ? '#1e293b' : '#fff',
+                            titleColor: textColor,
+                            bodyColor: textColor
+                        }
+                    },
+                    cutout: '65%'
+                }
+            });
+        }
+
+        function updateChartsTheme() {
+            if (riskTrendChart) riskTrendChart.destroy();
+            if (supplierDistChart) supplierDistChart.destroy();
+            initCharts();
+        }
+
+        // ===== TABLE SORTING =====
+        function sortTable(columnIndex) {
+            const table = document.getElementById('supplierTable');
+            const tbody = table.querySelector('tbody');
+            const rows = Array.from(tbody.querySelectorAll('tr'));
+            
+            rows.sort((a, b) => {
+                const aText = a.cells[columnIndex].textContent.trim();
+                const bText = b.cells[columnIndex].textContent.trim();
+                return aText.localeCompare(bText, undefined, { numeric: true });
+            });
+            
+            rows.forEach(row => tbody.appendChild(row));
+            showToast('Table sorted', 'info');
+        }
+
+        // ===== ACTION HANDLERS =====
+        function viewSupplier(name) {
+            showToast(`Loading ${name} profile...`, 'info');
+            // In real app, would navigate to supplier detail page
+        }
+
+        function exportData() {
+            showToast('📊 Exporting data as CSV...', 'success');
+            setTimeout(() => {
+                showToast('Download started!', 'success');
+            }, 1500);
+        }
+
+        function refreshData() {
+            showToast('🔄 Refreshing live data...', 'info');
+            setTimeout(() => {
+                showToast('✅ Data refreshed successfully!', 'success');
+            }, 2000);
+        }
+
+        // ===== INITIALIZE EVERYTHING =====
+        document.addEventListener('DOMContentLoaded', () => {
+            initScrollAnimations();
+            initBackToTop();
+            initCharts();
+            
+            console.log('✨ AI Supply Chain Command Center initialized with enhanced features!');
+            console.log('🎨 Features: Dark/Light mode | Modals | Animations | Charts | Search');
+        });
+
+        // Expose functions globally
+        window.openModal = openModal;
+        window.closeModal = closeModal;
+        window.nextStep = nextStep;
+        window.prevStep = prevStep;
+        window.handleLogin = handleLogin;
+        window.showToast = showToast;
+        window.toggleSearch = toggleSearch;
+        window.toggleTheme = toggleTheme;
+        window.viewSupplier = viewSupplier;
+        window.exportData = exportData;
+        window.refreshData = refreshData;
+        window.sortTable = sortTable;
+    </script>
+</body>
+</html>
