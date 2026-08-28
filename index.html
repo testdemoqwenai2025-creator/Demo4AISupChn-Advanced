@@ -1,1 +1,1347 @@
-<!DOCTYPE html><!--NGsJAAa_jAa_40gkHg1Dx--><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preload" href="./_next/static/media/797e433ab948586e-s.p.29207c2f.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="preload" href="./_next/static/media/caa3a2e1cccd8315-s.p.3b6cae6d.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="stylesheet" href="./_next/static/chunks/34d933785a17edf3.css" data-precedence="next"/><link rel="stylesheet" href="./_next/static/chunks/61e5b679eb5f19f4.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="./_next/static/chunks/58c60a5fa6b544da.js"/><script src="./_next/static/chunks/771dedee3f5e1621.js" async=""></script><script src="./_next/static/chunks/e4fe68828c836c31.js" async=""></script><script src="./_next/static/chunks/turbopack-b25efb3e5da9efbd.js" async=""></script><script src="./_next/static/chunks/74f1b9da08b28ae5.js" async=""></script><script src="./_next/static/chunks/66346ad2836c1601.js" async=""></script><script src="./_next/static/chunks/5fefea3ccdd1c88a.js" async=""></script><script src="./_next/static/chunks/1e1df3b12b037bc3.js" async=""></script><meta name="next-size-adjust" content=""/><title>AI Supply Chain Risk Predictor — Predict Disruptions Before They Happen</title><meta name="description" content="Real-time AI-powered supply chain risk intelligence platform. Predict disruptions, monitor suppliers, forecast demand, and ensure compliance with explainable machine learning."/><meta name="author" content="AI Supply Chain Team"/><meta name="keywords" content="supply chain,risk management,AI,machine learning,predictive analytics,supplier risk,demand forecasting,compliance"/><meta property="og:title" content="AI Supply Chain Risk Predictor"/><meta property="og:description" content="Real-time AI-powered supply chain risk intelligence. Predict disruptions before they happen."/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="AI Supply Chain Risk Predictor"/><meta name="twitter:description" content="Real-time AI-powered supply chain risk intelligence. Predict disruptions before they happen."/><script src="./_next/static/chunks/a6dad97d9634a72d.js" noModule=""></script></head><body class="geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__variable antialiased bg-background text-foreground"><div hidden=""><!--$--><!--/$--></div><div class="relative min-h-screen flex flex-col"><div class="jsx-50667397823cddfb min-h-screen transition-colors duration-500 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white"><div class="jsx-50667397823cddfb fixed inset-0 overflow-hidden pointer-events-none"><div class="jsx-50667397823cddfb absolute -top-40 -right-40 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl animate-pulse"></div><div class="jsx-50667397823cddfb absolute top-1/2 -left-40 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div><div class="jsx-50667397823cddfb absolute bottom-0 right-1/4 w-96 h-96 bg-violet-500/10 rounded-full blur-3xl animate-pulse delay-2000"></div></div><header class="jsx-50667397823cddfb sticky top-0 z-50 backdrop-blur-xl bg-slate-90/80 border-b border-white/10 shadow-lg"><div class="jsx-50667397823cddfb max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8"><div class="jsx-50667397823cddfb flex items-center justify-between h-16"><div class="jsx-50667397823cddfb flex items-center gap-3"><div class="jsx-50667397823cddfb relative"><div class="jsx-50667397823cddfb w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-400 to-cyan-500 flex items-center justify-center shadow-lg shadow-emerald-500/25"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield w-6 h-6 text-white" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path></svg></div><div class="jsx-50667397823cddfb absolute -top-1 -right-1 w-3 h-3 bg-emerald-400 rounded-full animate-pulse"></div></div><div class="jsx-50667397823cddfb"><h1 class="jsx-50667397823cddfb text-xl font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">AI Supply Chain</h1><p class="jsx-50667397823cddfb text-xs text-gray-400">Command Center v3.0</p></div></div><nav class="jsx-50667397823cddfb hidden md:flex items-center gap-1"><button class="jsx-50667397823cddfb px-4 py-2 rounded-lg text-sm font-medium transition-all bg-gradient-to-r from-emerald-500 to-cyan-500 text-white shadow-lg shadow-emerald-500/25">Dashboard</button><button class="jsx-50667397823cddfb px-4 py-2 rounded-lg text-sm font-medium transition-all hover:bg-white/10 text-gray-300">Suppliers</button><button class="jsx-50667397823cddfb px-4 py-2 rounded-lg text-sm font-medium transition-all hover:bg-white/10 text-gray-300">Risk Intel</button><button class="jsx-50667397823cddfb px-4 py-2 rounded-lg text-sm font-medium transition-all hover:bg-white/10 text-gray-300">Forecasting</button><button class="jsx-50667397823cddfb px-4 py-2 rounded-lg text-sm font-medium transition-all hover:bg-white/10 text-gray-300">Compliance</button></nav><div class="jsx-50667397823cddfb flex items-center gap-3"><div class="jsx-50667397823cddfb flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25"><div class="jsx-50667397823cddfb w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div><span class="jsx-50667397823cddfb text-xs font-medium text-emerald-400">LIVE</span></div><div class="jsx-50667397823cddfb hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock w-4 h-4 text-gray-400" aria-hidden="true"><path d="M12 6v6l4 2"></path><circle cx="12" cy="12" r="10"></circle></svg><span class="jsx-50667397823cddfb text-sm font-mono">6:47:00 PM</span></div><button class="jsx-50667397823cddfb p-2 rounded-lg transition-all hover:bg-white/10 text-yellow-400"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun w-5 h-5" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg></button><button class="jsx-50667397823cddfb relative p-2 rounded-lg hover:bg-white/10"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bell w-5 h-5" aria-hidden="true"><path d="M10.268 21a2 2 0 0 0 3.464 0"></path><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"></path></svg><span class="jsx-50667397823cddfb absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span></button><button data-slot="button" class="items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-primary/90 h-9 px-4 py-2 has-[&gt;svg]:px-3 hidden sm:flex bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-600 hover:to-cyan-600 text-white shadow-lg shadow-emerald-500/25"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap w-4 h-4 mr-2" aria-hidden="true"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path></svg>Run Analysis</button></div></div></div></header><main class="jsx-50667397823cddfb relative max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 py-8"><div class="jsx-50667397823cddfb grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8"><div data-slot="card" class="text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm relative overflow-hidden bg-slate-800/50 border-white/10 backdrop-blur-sm hover:shadow-xl transition-all group"><div data-slot="card-content" class="p-6"><div class="jsx-50667397823cddfb flex items-start justify-between mb-4"><div class="jsx-50667397823cddfb p-3 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 shadow-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users w-6 h-6 text-white" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><path d="M16 3.128a4 4 0 0 1 0 7.744"></path><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><circle cx="9" cy="7" r="4"></circle></svg></div><div class="jsx-50667397823cddfb flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium bg-red-500/10 text-red-400"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right w-3 h-3" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>+3.2%</div></div><div class="jsx-50667397823cddfb space-y-1"><p class="jsx-50667397823cddfb text-3xl font-bold text-white">0</p><p class="jsx-50667397823cddfb text-sm text-gray-400">Total Suppliers Monitored</p></div></div><div class="jsx-50667397823cddfb absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div></div><div data-slot="card" class="text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm relative overflow-hidden bg-slate-800/50 border-white/10 backdrop-blur-sm hover:shadow-xl transition-all group"><div data-slot="card-content" class="p-6"><div class="jsx-50667397823cddfb flex items-start justify-between mb-4"><div class="jsx-50667397823cddfb p-3 rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 shadow-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-alert w-6 h-6 text-white" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="M12 8v4"></path><path d="M12 16h.01"></path></svg></div><div class="jsx-50667397823cddfb flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium bg-green-500/10 text-green-400"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-down-right w-3 h-3" aria-hidden="true"><path d="m7 7 10 10"></path><path d="M17 7v10H7"></path></svg>-2.1%</div></div><div class="jsx-50667397823cddfb space-y-1"><p class="jsx-50667397823cddfb text-3xl font-bold text-white">0.0</p><p class="jsx-50667397823cddfb text-sm text-gray-400">Avg Risk Score</p></div></div><div class="jsx-50667397823cddfb absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-amber-500 to-orange-500 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div></div><div data-slot="card" class="text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm relative overflow-hidden bg-slate-800/50 border-white/10 backdrop-blur-sm hover:shadow-xl transition-all group"><div data-slot="card-content" class="p-6"><div class="jsx-50667397823cddfb flex items-start justify-between mb-4"><div class="jsx-50667397823cddfb p-3 rounded-xl bg-gradient-to-br from-red-500 to-pink-500 shadow-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-triangle-alert w-6 h-6 text-white" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg></div><div class="jsx-50667397823cddfb flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium bg-red-500/10 text-red-400"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right w-3 h-3" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>+5</div></div><div class="jsx-50667397823cddfb space-y-1"><p class="jsx-50667397823cddfb text-3xl font-bold text-white">0</p><p class="jsx-50667397823cddfb text-sm text-gray-400">Active Alerts</p></div></div><div class="jsx-50667397823cddfb absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-red-500 to-pink-500 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div></div><div data-slot="card" class="text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm relative overflow-hidden bg-slate-800/50 border-white/10 backdrop-blur-sm hover:shadow-xl transition-all group"><div data-slot="card-content" class="p-6"><div class="jsx-50667397823cddfb flex items-start justify-between mb-4"><div class="jsx-50667397823cddfb p-3 rounded-xl bg-gradient-to-br from-emerald-500 to-green-500 shadow-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-brain w-6 h-6 text-white" aria-hidden="true"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"></path><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"></path><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"></path><path d="M17.599 6.5a3 3 0 0 0 .399-1.375"></path><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"></path><path d="M3.477 10.896a4 4 0 0 1 .585-.396"></path><path d="M19.938 10.5a4 4 0 0 1 .585.396"></path><path d="M6 18a4 4 0 0 1-1.967-.516"></path><path d="M19.967 17.484A4 4 0 0 1 18 18"></path></svg></div><div class="jsx-50667397823cddfb flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium bg-red-500/10 text-red-400"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right w-3 h-3" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>+1.2%</div></div><div class="jsx-50667397823cddfb space-y-1"><p class="jsx-50667397823cddfb text-3xl font-bold text-white">0%</p><p class="jsx-50667397823cddfb text-sm text-gray-400">AI Prediction Accuracy</p></div></div><div class="jsx-50667397823cddfb absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-emerald-500 to-green-500 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div></div></div><div class="jsx-50667397823cddfb grid grid-cols-1 xl:grid-cols-3 gap-6 mb-8"><div data-slot="card" class="text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm xl:col-span-2 bg-slate-800/50 border-white/10"><div data-slot="card-header" class="@container/card-header auto-rows-min grid-rows-[auto_auto] gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6 flex flex-row items-center justify-between pb-4"><div class="jsx-50667397823cddfb"><div data-slot="card-title" class="leading-none font-semibold flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chart-line w-5 h-5 text-emerald-400" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16"></path><path d="m19 9-5 5-4-4-3 3"></path></svg>Risk Trend Analysis</div><div data-slot="card-description" class="text-muted-foreground text-sm">6-month risk trajectory by category</div></div><div class="jsx-50667397823cddfb flex items-center gap-2"><span data-slot="badge" class="inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&amp;&gt;svg]:size-3 [&amp;&gt;svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden border-transparent bg-secondary text-secondary-foreground [a&amp;]:hover:bg-secondary/90 gap-1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bot w-3 h-3" aria-hidden="true"><path d="M12 8V4H8"></path><rect width="16" height="12" x="4" y="8" rx="2"></rect><path d="M2 14h2"></path><path d="M20 14h2"></path><path d="M15 13v2"></path><path d="M9 13v2"></path></svg>AI Powered</span><button data-slot="button" class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 h-8 rounded-md gap-1.5 px-3 has-[&gt;svg]:px-2.5"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pause w-4 h-4" aria-hidden="true"><rect x="14" y="4" width="4" height="16" rx="1"></rect><rect x="6" y="4" width="4" height="16" rx="1"></rect></svg></button></div></div><div data-slot="card-content" class="px-6"><div class="recharts-responsive-container" style="width:100%;height:320px;min-width:0"></div></div></div><div data-slot="card" class="text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm bg-slate-800/50 border-white/10"><div data-slot="card-header" class="@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6 pb-4"><div data-slot="card-title" class="leading-none font-semibold flex items-center justify-between"><span class="jsx-50667397823cddfb flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chart-pie w-5 h-5 text-cyan-400" aria-hidden="true"><path d="M21 12c.552 0 1.005-.449.95-.998a10 10 0 0 0-8.953-8.951c-.55-.055-.998.398-.998.95v8a1 1 0 0 0 1 1z"></path><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path></svg>Supplier Risk Distribution</span><button data-slot="button" class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 h-8 rounded-md gap-1.5 px-3 has-[&gt;svg]:px-2.5">View All</button></div><div data-slot="card-description" class="text-muted-foreground text-sm">Risk concentration analysis</div></div><div data-slot="card-content" class="px-6"><div class="recharts-responsive-container" style="width:100%;height:280px;min-width:0"></div><div class="jsx-50667397823cddfb grid grid-cols-2 gap-2 mt-4"><div class="jsx-50667397823cddfb flex items-center justify-between p-2 rounded-lg bg-slate-700/50"><div class="jsx-50667397823cddfb flex items-center gap-2"><div style="background-color:#EF4444" class="jsx-50667397823cddfb w-3 h-3 rounded-full"></div><span class="jsx-50667397823cddfb text-xs">Critical</span></div><span class="jsx-50667397823cddfb text-sm font-semibold">1</span></div><div class="jsx-50667397823cddfb flex items-center justify-between p-2 rounded-lg bg-slate-700/50"><div class="jsx-50667397823cddfb flex items-center gap-2"><div style="background-color:#F59E0B" class="jsx-50667397823cddfb w-3 h-3 rounded-full"></div><span class="jsx-50667397823cddfb text-xs">High</span></div><span class="jsx-50667397823cddfb text-sm font-semibold">2</span></div><div class="jsx-50667397823cddfb flex items-center justify-between p-2 rounded-lg bg-slate-700/50"><div class="jsx-50667397823cddfb flex items-center gap-2"><div style="background-color:#06B6D4" class="jsx-50667397823cddfb w-3 h-3 rounded-full"></div><span class="jsx-50667397823cddfb text-xs">Medium</span></div><span class="jsx-50667397823cddfb text-sm font-semibold">3</span></div><div class="jsx-50667397823cddfb flex items-center justify-between p-2 rounded-lg bg-slate-700/50"><div class="jsx-50667397823cddfb flex items-center gap-2"><div style="background-color:#22C55E" class="jsx-50667397823cddfb w-3 h-3 rounded-full"></div><span class="jsx-50667397823cddfb text-xs">Low</span></div><span class="jsx-50667397823cddfb text-sm font-semibold">2</span></div></div></div></div></div><div class="jsx-50667397823cddfb grid grid-cols-1 xl:grid-cols-3 gap-6 mb-8"><div data-slot="card" class="text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm xl:col-span-2 bg-slate-800/50 border-white/10"><div data-slot="card-header" class="@container/card-header auto-rows-min grid-rows-[auto_auto] gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6 flex flex-row items-center justify-between pb-4"><div class="jsx-50667397823cddfb"><div data-slot="card-title" class="leading-none font-semibold flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chart-column w-5 h-5 text-violet-400" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16"></path><path d="M18 17V9"></path><path d="M13 17V5"></path><path d="M8 17v-3"></path></svg>Demand Forecast vs Actual</div><div data-slot="card-description" class="text-muted-foreground text-sm">AI-powered demand prediction accuracy</div></div><span data-slot="badge" class="inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&amp;&gt;svg]:size-3 [&amp;&gt;svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden border-transparent bg-secondary text-secondary-foreground [a&amp;]:hover:bg-secondary/90 gap-1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles w-3 h-3" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"></path><path d="M20 3v4"></path><path d="M22 5h-4"></path><path d="M4 17v2"></path><path d="M5 18H3"></path></svg>ML Model v2.4</span></div><div data-slot="card-content" class="px-6"><div class="recharts-responsive-container" style="width:100%;height:300px;min-width:0"></div></div></div><div data-slot="card" class="text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm bg-slate-800/50 border-white/10"><div data-slot="card-header" class="@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6 pb-4"><div data-slot="card-title" class="leading-none font-semibold flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe w-5 h-5 text-orange-400" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>Regional Risk</div><div data-slot="card-description" class="text-muted-foreground text-sm">Supplier concentration by geography</div></div><div data-slot="card-content" class="px-6 space-y-4"><div class="jsx-50667397823cddfb space-y-2"><div class="jsx-50667397823cddfb flex items-center justify-between text-sm"><span class="jsx-50667397823cddfb font-medium">Asia Pacific</span><span class="jsx-50667397823cddfb text-gray-400">487<!-- --> suppliers</span></div><div class="jsx-50667397823cddfb flex gap-1 h-3 rounded-full overflow-hidden bg-slate-700/50"><div style="width:24.64065708418891%" title="High: 120" class="jsx-50667397823cddfb bg-red-500 transition-all hover:opacity-80"></div><div style="width:57.49486652977412%" title="Medium: 280" class="jsx-50667397823cddfb bg-amber-500 transition-all hover:opacity-80"></div><div style="width:92.40246406570843%" title="Low: 450" class="jsx-50667397823cddfb bg-emerald-500 transition-all hover:opacity-80"></div></div></div><div class="jsx-50667397823cddfb space-y-2"><div class="jsx-50667397823cddfb flex items-center justify-between text-sm"><span class="jsx-50667397823cddfb font-medium">Europe</span><span class="jsx-50667397823cddfb text-gray-400">342<!-- --> suppliers</span></div><div class="jsx-50667397823cddfb flex gap-1 h-3 rounded-full overflow-hidden bg-slate-700/50"><div style="width:19.005847953216374%" title="High: 65" class="jsx-50667397823cddfb bg-red-500 transition-all hover:opacity-80"></div><div style="width:55.55555555555556%" title="Medium: 190" class="jsx-50667397823cddfb bg-amber-500 transition-all hover:opacity-80"></div><div style="width:111.11111111111111%" title="Low: 380" class="jsx-50667397823cddfb bg-emerald-500 transition-all hover:opacity-80"></div></div></div><div class="jsx-50667397823cddfb space-y-2"><div class="jsx-50667397823cddfb flex items-center justify-between text-sm"><span class="jsx-50667397823cddfb font-medium">North America</span><span class="jsx-50667397823cddfb text-gray-400">298<!-- --> suppliers</span></div><div class="jsx-50667397823cddfb flex gap-1 h-3 rounded-full overflow-hidden bg-slate-700/50"><div style="width:15.100671140939598%" title="High: 45" class="jsx-50667397823cddfb bg-red-500 transition-all hover:opacity-80"></div><div style="width:50.33557046979866%" title="Medium: 150" class="jsx-50667397823cddfb bg-amber-500 transition-all hover:opacity-80"></div><div style="width:140.93959731543623%" title="Low: 420" class="jsx-50667397823cddfb bg-emerald-500 transition-all hover:opacity-80"></div></div></div><div class="jsx-50667397823cddfb space-y-2"><div class="jsx-50667397823cddfb flex items-center justify-between text-sm"><span class="jsx-50667397823cddfb font-medium">Latin America</span><span class="jsx-50667397823cddfb text-gray-400">120<!-- --> suppliers</span></div><div class="jsx-50667397823cddfb flex gap-1 h-3 rounded-full overflow-hidden bg-slate-700/50"><div style="width:74.16666666666667%" title="High: 89" class="jsx-50667397823cddfb bg-red-500 transition-all hover:opacity-80"></div><div style="width:100%" title="Medium: 120" class="jsx-50667397823cddfb bg-amber-500 transition-all hover:opacity-80"></div><div style="width:150%" title="Low: 180" class="jsx-50667397823cddfb bg-emerald-500 transition-all hover:opacity-80"></div></div></div><div data-orientation="horizontal" role="none" data-slot="separator" class="shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px bg-slate-700"></div><div class="jsx-50667397823cddfb flex items-center justify-between text-xs"><div class="jsx-50667397823cddfb flex items-center gap-4"><div class="jsx-50667397823cddfb flex items-center gap-1"><div class="jsx-50667397823cddfb w-2 h-2 rounded-full bg-red-500"></div> High</div><div class="jsx-50667397823cddfb flex items-center gap-1"><div class="jsx-50667397823cddfb w-2 h-2 rounded-full bg-amber-500"></div> Medium</div><div class="jsx-50667397823cddfb flex items-center gap-1"><div class="jsx-50667397823cddfb w-2 h-2 rounded-full bg-emerald-500"></div> Low</div></div></div></div></div></div><div data-slot="card" class="text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm bg-slate-800/50 border-white/10"><div data-slot="card-header" class="@container/card-header auto-rows-min grid-rows-[auto_auto] gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6 flex flex-row items-center justify-between pb-4"><div class="jsx-50667397823cddfb"><div data-slot="card-title" class="leading-none font-semibold flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-activity w-5 h-5 text-red-400 animate-pulse" aria-hidden="true"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"></path></svg>Live Risk Alerts</div><div data-slot="card-description" class="text-muted-foreground text-sm">Real-time threat intelligence stream</div></div><div class="jsx-50667397823cddfb flex items-center gap-2"><button data-slot="button" class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 h-8 rounded-md gap-1.5 px-3 has-[&gt;svg]:px-2.5 border-red-500 text-red-500"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pause w-4 h-4 mr-1" aria-hidden="true"><rect x="14" y="4" width="4" height="16" rx="1"></rect><rect x="6" y="4" width="4" height="16" rx="1"></rect></svg> Pause</button><span data-slot="badge" class="inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&amp;&gt;svg]:size-3 [&amp;&gt;svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden border-transparent bg-secondary text-secondary-foreground [a&amp;]:hover:bg-secondary/90 gap-1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-radio w-3 h-3" aria-hidden="true"><path d="M16.247 7.761a6 6 0 0 1 0 8.478"></path><path d="M19.075 4.933a10 10 0 0 1 0 14.134"></path><path d="M4.925 19.067a10 10 0 0 1 0-14.134"></path><path d="M7.753 16.239a6 6 0 0 1 0-8.478"></path><circle cx="12" cy="12" r="2"></circle></svg>Real-time</span></div></div><div data-slot="card-content" class="px-6"><div class="jsx-50667397823cddfb space-y-3 max-h-[400px] overflow-y-auto pr-2 custom-scrollbar"><div class="jsx-50667397823cddfb p-4 rounded-xl border transition-all hover:shadow-md bg-red-500/10 border-red-500/25"><div class="jsx-50667397823cddfb flex items-start justify-between mb-2"><div class="jsx-50667397823cddfb flex items-center gap-2"><span data-slot="badge" class="inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&amp;&gt;svg]:size-3 gap-1 [&amp;&gt;svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden [a&amp;]:hover:bg-secondary/90 bg-red-500/20 text-red-400 border-red-500/30">CRITICAL</span><span data-slot="badge" class="inline-flex items-center justify-center rounded-md border px-2 py-0.5 font-medium w-fit whitespace-nowrap shrink-0 [&amp;&gt;svg]:size-3 gap-1 [&amp;&gt;svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden text-foreground [a&amp;]:hover:bg-accent [a&amp;]:hover:text-accent-foreground text-xs">compliance</span></div><div class="jsx-50667397823cddfb flex items-center gap-2"><span class="jsx-50667397823cddfb text-xs text-gray-400">30 min ago</span><button data-slot="button" class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 rounded-md gap-1.5 has-[&gt;svg]:px-2.5 h-6 w-6 p-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-fingerprint w-3 h-3" aria-hidden="true"><path d="M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4"></path><path d="M14 13.12c0 2.38 0 6.38-1 8.88"></path><path d="M17.29 21.02c.12-.6.43-2.3.5-3.02"></path><path d="M2 12a10 10 0 0 1 18-6"></path><path d="M2 16h.01"></path><path d="M21.8 16c.2-2 .131-5.354 0-6"></path><path d="M5 19.5C5.5 18 6 15 6 12a6 6 0 0 1 .34-2"></path><path d="M8.65 22c.21-.66.45-1.32.57-2"></path><path d="M9 6.8a6 6 0 0 1 9 5.2v2"></path></svg></button></div></div><h4 class="jsx-50667397823cddfb font-semibold mb-1 text-white">UFLPA Entity List Match Detected</h4><p class="jsx-50667397823cddfb text-sm mb-2 text-gray-300">Shanghai Advanced Materials flagged for potential UFLPA Entity List connection.</p><div class="jsx-50667397823cddfb flex items-center justify-between"><div class="jsx-50667397823cddfb flex items-center gap-3 text-xs"><span class="jsx-50667397823cddfb flex items-center gap-1 text-gray-400"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building2 lucide-building-2 w-3 h-3" aria-hidden="true"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path><path d="M10 6h4"></path><path d="M10 10h4"></path><path d="M10 14h4"></path><path d="M10 18h4"></path></svg>Shanghai Advanced Materials Co.</span><span class="jsx-50667397823cddfb flex items-center gap-1 text-gray-400"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin w-3 h-3" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>Asia Pacific</span></div><span data-slot="badge" class="inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&amp;&gt;svg]:size-3 gap-1 [&amp;&gt;svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden border-transparent [a&amp;]:hover:bg-secondary/90 bg-red-500/20 text-red-400">Impact: <!-- -->high</span></div><details class="jsx-50667397823cddfb mt-3 group"><summary class="jsx-50667397823cddfb cursor-pointer text-xs flex items-center gap-1 text-cyan-400 hover:underline"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-brain w-3 h-3" aria-hidden="true"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"></path><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"></path><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"></path><path d="M17.599 6.5a3 3 0 0 0 .399-1.375"></path><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"></path><path d="M3.477 10.896a4 4 0 0 1 .585-.396"></path><path d="M19.938 10.5a4 4 0 0 1 .585.396"></path><path d="M6 18a4 4 0 0 1-1.967-.516"></path><path d="M19.967 17.484A4 4 0 0 1 18 18"></path></svg>Show AI Explanation (SHAP)</summary><div class="jsx-50667397823cddfb mt-2 p-3 rounded-lg text-xs bg-slate-900/50"><div class="jsx-50667397823cddfb grid grid-cols-2 gap-2"><div class="jsx-50667397823cddfb"><strong class="jsx-50667397823cddfb">Feature Importance:</strong></div><div class="jsx-50667397823cddfb">Geopolitical: 42%, Financial: 28%, ESG: 18%, Operational: 12%</div><div class="jsx-50667397823cddfb"><strong class="jsx-50667397823cddfb">Confidence:</strong></div><div class="jsx-50667397823cddfb">90.6<!-- -->%</div><div class="jsx-50667397823cddfb"><strong class="jsx-50667397823cddfb">Model Used:</strong></div><div class="jsx-50667397823cddfb">XGBoost Ensemble v3.2</div><div class="jsx-50667397823cddfb"><strong class="jsx-50667397823cddfb">Data Points:</strong></div><div class="jsx-50667397823cddfb">1,746</div></div></div></details></div><div class="jsx-50667397823cddfb p-4 rounded-xl border transition-all hover:shadow-md bg-amber-500/10 border-amber-500/25"><div class="jsx-50667397823cddfb flex items-start justify-between mb-2"><div class="jsx-50667397823cddfb flex items-center gap-2"><span data-slot="badge" class="inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&amp;&gt;svg]:size-3 gap-1 [&amp;&gt;svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden [a&amp;]:hover:bg-secondary/90 bg-amber-500/20 text-amber-400 border-amber-500/30">WARNING</span><span data-slot="badge" class="inline-flex items-center justify-center rounded-md border px-2 py-0.5 font-medium w-fit whitespace-nowrap shrink-0 [&amp;&gt;svg]:size-3 gap-1 [&amp;&gt;svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden text-foreground [a&amp;]:hover:bg-accent [a&amp;]:hover:text-accent-foreground text-xs">environmental</span></div><div class="jsx-50667397823cddfb flex items-center gap-2"><span class="jsx-50667397823cddfb text-xs text-gray-400">1 hour ago</span><button data-slot="button" class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 rounded-md gap-1.5 has-[&gt;svg]:px-2.5 h-6 w-6 p-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-fingerprint w-3 h-3" aria-hidden="true"><path d="M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4"></path><path d="M14 13.12c0 2.38 0 6.38-1 8.88"></path><path d="M17.29 21.02c.12-.6.43-2.3.5-3.02"></path><path d="M2 12a10 10 0 0 1 18-6"></path><path d="M2 16h.01"></path><path d="M21.8 16c.2-2 .131-5.354 0-6"></path><path d="M5 19.5C5.5 18 6 15 6 12a6 6 0 0 1 .34-2"></path><path d="M8.65 22c.21-.66.45-1.32.57-2"></path><path d="M9 6.8a6 6 0 0 1 9 5.2v2"></path></svg></button></div></div><h4 class="jsx-50667397823cddfb font-semibold mb-1 text-white">EUDR Deforestation Risk Identified</h4><p class="jsx-50667397823cddfb text-sm mb-2 text-gray-300">BrazilAgro sourcing area shows satellite-detected deforestation activity.</p><div class="jsx-50667397823cddfb flex items-center justify-between"><div class="jsx-50667397823cddfb flex items-center gap-3 text-xs"><span class="jsx-50667397823cddfb flex items-center gap-1 text-gray-400"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building2 lucide-building-2 w-3 h-3" aria-hidden="true"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path><path d="M10 6h4"></path><path d="M10 10h4"></path><path d="M10 14h4"></path><path d="M10 18h4"></path></svg>BrazilAgro Commodities SA</span><span class="jsx-50667397823cddfb flex items-center gap-1 text-gray-400"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin w-3 h-3" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>Latin America</span></div><span data-slot="badge" class="inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&amp;&gt;svg]:size-3 gap-1 [&amp;&gt;svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden border-transparent [a&amp;]:hover:bg-secondary/90 bg-red-500/20 text-red-400">Impact: <!-- -->high</span></div><details class="jsx-50667397823cddfb mt-3 group"><summary class="jsx-50667397823cddfb cursor-pointer text-xs flex items-center gap-1 text-cyan-400 hover:underline"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-brain w-3 h-3" aria-hidden="true"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"></path><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"></path><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"></path><path d="M17.599 6.5a3 3 0 0 0 .399-1.375"></path><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"></path><path d="M3.477 10.896a4 4 0 0 1 .585-.396"></path><path d="M19.938 10.5a4 4 0 0 1 .585.396"></path><path d="M6 18a4 4 0 0 1-1.967-.516"></path><path d="M19.967 17.484A4 4 0 0 1 18 18"></path></svg>Show AI Explanation (SHAP)</summary><div class="jsx-50667397823cddfb mt-2 p-3 rounded-lg text-xs bg-slate-900/50"><div class="jsx-50667397823cddfb grid grid-cols-2 gap-2"><div class="jsx-50667397823cddfb"><strong class="jsx-50667397823cddfb">Feature Importance:</strong></div><div class="jsx-50667397823cddfb">Geopolitical: 42%, Financial: 28%, ESG: 18%, Operational: 12%</div><div class="jsx-50667397823cddfb"><strong class="jsx-50667397823cddfb">Confidence:</strong></div><div class="jsx-50667397823cddfb">90.1<!-- -->%</div><div class="jsx-50667397823cddfb"><strong class="jsx-50667397823cddfb">Model Used:</strong></div><div class="jsx-50667397823cddfb">XGBoost Ensemble v3.2</div><div class="jsx-50667397823cddfb"><strong class="jsx-50667397823cddfb">Data Points:</strong></div><div class="jsx-50667397823cddfb">1,303</div></div></div></details></div><div class="jsx-50667397823cddfb p-4 rounded-xl border transition-all hover:shadow-md bg-blue-500/10 border-blue-500/25"><div class="jsx-50667397823cddfb flex items-start justify-between mb-2"><div class="jsx-50667397823cddfb flex items-center gap-2"><span data-slot="badge" class="inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&amp;&gt;svg]:size-3 gap-1 [&amp;&gt;svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden [a&amp;]:hover:bg-secondary/90 bg-blue-500/20 text-blue-400 border-blue-500/30">INFO</span><span data-slot="badge" class="inline-flex items-center justify-center rounded-md border px-2 py-0.5 font-medium w-fit whitespace-nowrap shrink-0 [&amp;&gt;svg]:size-3 gap-1 [&amp;&gt;svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden text-foreground [a&amp;]:hover:bg-accent [a&amp;]:hover:text-accent-foreground text-xs">regulatory</span></div><div class="jsx-50667397823cddfb flex items-center gap-2"><span class="jsx-50667397823cddfb text-xs text-gray-400">2 hours ago</span><button data-slot="button" class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 rounded-md gap-1.5 has-[&gt;svg]:px-2.5 h-6 w-6 p-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-fingerprint w-3 h-3" aria-hidden="true"><path d="M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4"></path><path d="M14 13.12c0 2.38 0 6.38-1 8.88"></path><path d="M17.29 21.02c.12-.6.43-2.3.5-3.02"></path><path d="M2 12a10 10 0 0 1 18-6"></path><path d="M2 16h.01"></path><path d="M21.8 16c.2-2 .131-5.354 0-6"></path><path d="M5 19.5C5.5 18 6 15 6 12a6 6 0 0 1 .34-2"></path><path d="M8.65 22c.21-.66.45-1.32.57-2"></path><path d="M9 6.8a6 6 0 0 1 9 5.2v2"></path></svg></button></div></div><h4 class="jsx-50667397823cddfb font-semibold mb-1 text-white">New Compliance Regulation Announced</h4><p class="jsx-50667397823cddfb text-sm mb-2 text-gray-300">Global Manufacturing Co. affected by new EU CSRD reporting requirements.</p><div class="jsx-50667397823cddfb flex items-center justify-between"><div class="jsx-50667397823cddfb flex items-center gap-3 text-xs"><span class="jsx-50667397823cddfb flex items-center gap-1 text-gray-400"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building2 lucide-building-2 w-3 h-3" aria-hidden="true"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path><path d="M10 6h4"></path><path d="M10 10h4"></path><path d="M10 14h4"></path><path d="M10 18h4"></path></svg>Global Manufacturing Co.</span><span class="jsx-50667397823cddfb flex items-center gap-1 text-gray-400"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin w-3 h-3" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>North America</span></div><span data-slot="badge" class="inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&amp;&gt;svg]:size-3 gap-1 [&amp;&gt;svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden border-transparent [a&amp;]:hover:bg-secondary/90 bg-amber-500/20 text-amber-400">Impact: <!-- -->medium</span></div><details class="jsx-50667397823cddfb mt-3 group"><summary class="jsx-50667397823cddfb cursor-pointer text-xs flex items-center gap-1 text-cyan-400 hover:underline"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-brain w-3 h-3" aria-hidden="true"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"></path><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"></path><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"></path><path d="M17.599 6.5a3 3 0 0 0 .399-1.375"></path><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"></path><path d="M3.477 10.896a4 4 0 0 1 .585-.396"></path><path d="M19.938 10.5a4 4 0 0 1 .585.396"></path><path d="M6 18a4 4 0 0 1-1.967-.516"></path><path d="M19.967 17.484A4 4 0 0 1 18 18"></path></svg>Show AI Explanation (SHAP)</summary><div class="jsx-50667397823cddfb mt-2 p-3 rounded-lg text-xs bg-slate-900/50"><div class="jsx-50667397823cddfb grid grid-cols-2 gap-2"><div class="jsx-50667397823cddfb"><strong class="jsx-50667397823cddfb">Feature Importance:</strong></div><div class="jsx-50667397823cddfb">Geopolitical: 42%, Financial: 28%, ESG: 18%, Operational: 12%</div><div class="jsx-50667397823cddfb"><strong class="jsx-50667397823cddfb">Confidence:</strong></div><div class="jsx-50667397823cddfb">87.5<!-- -->%</div><div class="jsx-50667397823cddfb"><strong class="jsx-50667397823cddfb">Model Used:</strong></div><div class="jsx-50667397823cddfb">XGBoost Ensemble v3.2</div><div class="jsx-50667397823cddfb"><strong class="jsx-50667397823cddfb">Data Points:</strong></div><div class="jsx-50667397823cddfb">1,295</div></div></div></details></div><div class="jsx-50667397823cddfb p-4 rounded-xl border transition-all hover:shadow-md bg-amber-500/10 border-amber-500/25"><div class="jsx-50667397823cddfb flex items-start justify-between mb-2"><div class="jsx-50667397823cddfb flex items-center gap-2"><span data-slot="badge" class="inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&amp;&gt;svg]:size-3 gap-1 [&amp;&gt;svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden [a&amp;]:hover:bg-secondary/90 bg-amber-500/20 text-amber-400 border-amber-500/30">WARNING</span><span data-slot="badge" class="inline-flex items-center justify-center rounded-md border px-2 py-0.5 font-medium w-fit whitespace-nowrap shrink-0 [&amp;&gt;svg]:size-3 gap-1 [&amp;&gt;svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden text-foreground [a&amp;]:hover:bg-accent [a&amp;]:hover:text-accent-foreground text-xs">logistics</span></div><div class="jsx-50667397823cddfb flex items-center gap-2"><span class="jsx-50667397823cddfb text-xs text-gray-400">3 hours ago</span><button data-slot="button" class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 rounded-md gap-1.5 has-[&gt;svg]:px-2.5 h-6 w-6 p-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-fingerprint w-3 h-3" aria-hidden="true"><path d="M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4"></path><path d="M14 13.12c0 2.38 0 6.38-1 8.88"></path><path d="M17.29 21.02c.12-.6.43-2.3.5-3.02"></path><path d="M2 12a10 10 0 0 1 18-6"></path><path d="M2 16h.01"></path><path d="M21.8 16c.2-2 .131-5.354 0-6"></path><path d="M5 19.5C5.5 18 6 15 6 12a6 6 0 0 1 .34-2"></path><path d="M8.65 22c.21-.66.45-1.32.57-2"></path><path d="M9 6.8a6 6 0 0 1 9 5.2v2"></path></svg></button></div></div><h4 class="jsx-50667397823cddfb font-semibold mb-1 text-white">Port Congestion at Singapore</h4><p class="jsx-50667397823cddfb text-sm mb-2 text-gray-300">AsiaLogistics shipments experiencing 3-5 day delays due to port congestion.</p><div class="jsx-50667397823cddfb flex items-center justify-between"><div class="jsx-50667397823cddfb flex items-center gap-3 text-xs"><span class="jsx-50667397823cddfb flex items-center gap-1 text-gray-400"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building2 lucide-building-2 w-3 h-3" aria-hidden="true"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path><path d="M10 6h4"></path><path d="M10 10h4"></path><path d="M10 14h4"></path><path d="M10 18h4"></path></svg>AsiaLogistics Pte.</span><span class="jsx-50667397823cddfb flex items-center gap-1 text-gray-400"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin w-3 h-3" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>Asia Pacific</span></div><span data-slot="badge" class="inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&amp;&gt;svg]:size-3 gap-1 [&amp;&gt;svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden border-transparent [a&amp;]:hover:bg-secondary/90 bg-amber-500/20 text-amber-400">Impact: <!-- -->medium</span></div><details class="jsx-50667397823cddfb mt-3 group"><summary class="jsx-50667397823cddfb cursor-pointer text-xs flex items-center gap-1 text-cyan-400 hover:underline"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-brain w-3 h-3" aria-hidden="true"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"></path><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"></path><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"></path><path d="M17.599 6.5a3 3 0 0 0 .399-1.375"></path><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"></path><path d="M3.477 10.896a4 4 0 0 1 .585-.396"></path><path d="M19.938 10.5a4 4 0 0 1 .585.396"></path><path d="M6 18a4 4 0 0 1-1.967-.516"></path><path d="M19.967 17.484A4 4 0 0 1 18 18"></path></svg>Show AI Explanation (SHAP)</summary><div class="jsx-50667397823cddfb mt-2 p-3 rounded-lg text-xs bg-slate-900/50"><div class="jsx-50667397823cddfb grid grid-cols-2 gap-2"><div class="jsx-50667397823cddfb"><strong class="jsx-50667397823cddfb">Feature Importance:</strong></div><div class="jsx-50667397823cddfb">Geopolitical: 42%, Financial: 28%, ESG: 18%, Operational: 12%</div><div class="jsx-50667397823cddfb"><strong class="jsx-50667397823cddfb">Confidence:</strong></div><div class="jsx-50667397823cddfb">92.2<!-- -->%</div><div class="jsx-50667397823cddfb"><strong class="jsx-50667397823cddfb">Model Used:</strong></div><div class="jsx-50667397823cddfb">XGBoost Ensemble v3.2</div><div class="jsx-50667397823cddfb"><strong class="jsx-50667397823cddfb">Data Points:</strong></div><div class="jsx-50667397823cddfb">1,815</div></div></div></details></div></div></div></div></main><footer class="jsx-50667397823cddfb mt-auto py-6 border-t border-white/10 bg-slate-900/50"><div class="jsx-50667397823cddfb max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8"><div class="jsx-50667397823cddfb flex flex-col md:flex-row items-center justify-between gap-4"><div class="jsx-50667397823cddfb flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield w-5 h-5 text-emerald-500" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path></svg><span class="jsx-50667397823cddfb text-sm font-medium">Supply Chain Command Center v3.0</span></div><div class="jsx-50667397823cddfb text-sm text-gray-400">Data refreshed: <!-- -->8/28/2026, 6:47:00 PM<!-- --> • AI Engine: Active • Uptime: 99.97%</div><div class="jsx-50667397823cddfb flex items-center gap-4"><button data-slot="button" class="inline-flex items-center justify-center whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 h-8 rounded-md gap-1.5 px-3 has-[&gt;svg]:px-2.5 text-xs"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail w-4 h-4 mr-1" aria-hidden="true"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path><rect x="2" y="4" width="20" height="16" rx="2"></rect></svg>support@commandcenter.ai</button><button data-slot="button" class="inline-flex items-center justify-center whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 h-8 rounded-md gap-1.5 px-3 has-[&gt;svg]:px-2.5 text-xs">Help</button></div></div></div></footer></div><!--$--><!--/$--><div role="region" aria-label="Notifications (F8)" tabindex="-1" style="pointer-events:none"><ol tabindex="-1" class="fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]"></ol></div></div><script src="./_next/static/chunks/58c60a5fa6b544da.js" id="_R_" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0])</script><script>self.__next_f.push([1,"1:\"$Sreact.fragment\"\n2:I[39756,[\"/_next/static/chunks/74f1b9da08b28ae5.js\"],\"default\"]\n3:I[37457,[\"/_next/static/chunks/74f1b9da08b28ae5.js\"],\"default\"]\n4:I[77855,[\"/_next/static/chunks/66346ad2836c1601.js\",\"/_next/static/chunks/5fefea3ccdd1c88a.js\"],\"Toaster\"]\n5:I[47257,[\"/_next/static/chunks/74f1b9da08b28ae5.js\"],\"ClientPageRoot\"]\n6:I[52683,[\"/_next/static/chunks/66346ad2836c1601.js\",\"/_next/static/chunks/5fefea3ccdd1c88a.js\",\"/_next/static/chunks/1e1df3b12b037bc3.js\"],\"default\"]\n9:I[97367,[\"/_next/static/chunks/74f1b9da08b28ae5.js\"],\"OutletBoundary\"]\na:\"$Sreact.suspense\"\nc:I[97367,[\"/_next/static/chunks/74f1b9da08b28ae5.js\"],\"ViewportBoundary\"]\ne:I[97367,[\"/_next/static/chunks/74f1b9da08b28ae5.js\"],\"MetadataBoundary\"]\n10:I[68027,[\"/_next/static/chunks/74f1b9da08b28ae5.js\"],\"default\"]\n:HL[\"/_next/static/chunks/34d933785a17edf3.css\",\"style\"]\n:HL[\"/_next/static/chunks/61e5b679eb5f19f4.css\",\"style\"]\n:HL[\"/_next/static/media/797e433ab948586e-s.p.29207c2f.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/_next/static/media/caa3a2e1cccd8315-s.p.3b6cae6d.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n"])</script><script>self.__next_f.push([1,"0:{\"P\":null,\"b\":\"NGsJAAa_jAa_40gkHg1Dx\",\"c\":[\"\",\"\"],\"q\":\"\",\"i\":false,\"f\":[[[\"\",{\"children\":[\"__PAGE__\",{}]},\"$undefined\",\"$undefined\",true],[[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/chunks/34d933785a17edf3.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}],[\"$\",\"link\",\"1\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/chunks/61e5b679eb5f19f4.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-0\",{\"src\":\"/_next/static/chunks/66346ad2836c1601.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-1\",{\"src\":\"/_next/static/chunks/5fefea3ccdd1c88a.js\",\"async\":true,\"nonce\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"en\",\"suppressHydrationWarning\":true,\"children\":[\"$\",\"body\",null,{\"className\":\"geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__variable antialiased bg-background text-foreground\",\"children\":[\"$\",\"div\",null,{\"className\":\"relative min-h-screen flex flex-col\",\"children\":[[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L3\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":404}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}],[\"$\",\"$L4\",null,{}]]}]}]}]]}],{\"children\":[[\"$\",\"$1\",\"c\",{\"children\":[[\"$\",\"$L5\",null,{\"Component\":\"$6\",\"serverProvidedParams\":{\"searchParams\":{},\"params\":{},\"promises\":[\"$@7\",\"$@8\"]}}],[[\"$\",\"script\",\"script-0\",{\"src\":\"/_next/static/chunks/1e1df3b12b037bc3.js\",\"async\":true,\"nonce\":\"$undefined\"}]],[\"$\",\"$L9\",null,{\"children\":[\"$\",\"$a\",null,{\"name\":\"Next.MetadataOutlet\",\"children\":\"$@b\"}]}]]}],{},null,false,false]},null,false,false],[\"$\",\"$1\",\"h\",{\"children\":[null,[\"$\",\"$Lc\",null,{\"children\":\"$Ld\"}],[\"$\",\"div\",null,{\"hidden\":true,\"children\":[\"$\",\"$Le\",null,{\"children\":[\"$\",\"$a\",null,{\"name\":\"Next.Metadata\",\"children\":\"$Lf\"}]}]}],[\"$\",\"meta\",null,{\"name\":\"next-size-adjust\",\"content\":\"\"}]]}],false]],\"m\":\"$undefined\",\"G\":[\"$10\",[]],\"S\":true}\n"])</script><script>self.__next_f.push([1,"7:{}\n8:\"$0:f:0:1:1:children:0:props:children:0:props:serverProvidedParams:params\"\n"])</script><script>self.__next_f.push([1,"d:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}]]\n"])</script><script>self.__next_f.push([1,"b:null\nf:[[\"$\",\"title\",\"0\",{\"children\":\"AI Supply Chain Risk Predictor — Predict Disruptions Before They Happen\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"Real-time AI-powered supply chain risk intelligence platform. Predict disruptions, monitor suppliers, forecast demand, and ensure compliance with explainable machine learning.\"}],[\"$\",\"meta\",\"2\",{\"name\":\"author\",\"content\":\"AI Supply Chain Team\"}],[\"$\",\"meta\",\"3\",{\"name\":\"keywords\",\"content\":\"supply chain,risk management,AI,machine learning,predictive analytics,supplier risk,demand forecasting,compliance\"}],[\"$\",\"meta\",\"4\",{\"property\":\"og:title\",\"content\":\"AI Supply Chain Risk Predictor\"}],[\"$\",\"meta\",\"5\",{\"property\":\"og:description\",\"content\":\"Real-time AI-powered supply chain risk intelligence. Predict disruptions before they happen.\"}],[\"$\",\"meta\",\"6\",{\"property\":\"og:type\",\"content\":\"website\"}],[\"$\",\"meta\",\"7\",{\"name\":\"twitter:card\",\"content\":\"summary\"}],[\"$\",\"meta\",\"8\",{\"name\":\"twitter:title\",\"content\":\"AI Supply Chain Risk Predictor\"}],[\"$\",\"meta\",\"9\",{\"name\":\"twitter:description\",\"content\":\"Real-time AI-powered supply chain risk intelligence. Predict disruptions before they happen.\"}]]\n"])</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Supply Chain Command Center v3.0 | Enterprise Risk Intelligence</title>
+    <meta name="description" content="Real-time AI-powered supply chain risk intelligence platform with interactive dashboards, live alerts, and predictive analytics.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primary: #10B981;
+            --secondary: #06B6D4;
+            --accent: #8B5CF6;
+            --warning: #F59E0B;
+            --danger: #EF4444;
+            --success: #22C55E;
+            --dark: #0F172A;
+            --dark-lighter: #1E293B;
+            --light: #F8FAFC;
+            --gray-100: #F1F5F9;
+            --gray-200: #E2E8F0;
+            --gray-300: #CBD5E1;
+            --gray-400: #94A3B8;
+            --gray-500: #64748B;
+            --gray-600: #475569;
+            --gray-700: #334155;
+            --gray-800: #1E293B;
+            --gradient-start: #059669;
+            --gradient-end: #0891B2;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-lighter) 50%, var(--dark) 100%);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .bg-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.15;
+            animation: pulse 8s ease-in-out infinite;
+        }
+        
+        .bg-orb-1 {
+            width: 500px; height: 500px;
+            top: -100px; right: -100px;
+            background: var(--primary);
+        }
+        
+        .bg-orb-2 {
+            width: 400px; height: 400px;
+            top: 50%; left: -100px;
+            background: var(--secondary);
+            animation-delay: 2s;
+        }
+        
+        .bg-orb-3 {
+            width: 350px; height: 350px;
+            bottom: -50px; right: 30%;
+            background: var(--accent);
+            animation-delay: 4s;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.15; }
+            50% { transform: scale(1.1); opacity: 0.25; }
+        }
+        
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(20px);
+            background: rgba(15, 23, 42, 0.85);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-content {
+            max-width: 1920px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo-icon {
+            position: relative;
+            width: 40px; height: 40px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.35);
+        }
+        
+        .logo-pulse {
+            position: absolute;
+            top: -4px; right: -4px;
+            width: 12px; height: 12px;
+            background: var(--primary);
+            border-radius: 50%;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse-dot {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.3); opacity: 0.7; }
+        }
+        
+        .logo-text h1 {
+            font-size: 18px;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .logo-text p {
+            font-size: 11px;
+            color: var(--gray-400);
+        }
+        
+        nav {
+            display: flex;
+            gap: 4px;
+        }
+        
+        nav button {
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            background: transparent;
+            color: var(--gray-300);
+        }
+        
+        nav button:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        
+        nav button.active {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.35);
+        }
+        
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .live-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 9999px;
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .live-dot {
+            width: 6px; height: 6px;
+            background: var(--primary);
+            border-radius: 50%;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+        
+        .clock {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            font-size: 13px;
+            font-family: monospace;
+            color: var(--gray-300);
+        }
+        
+        .theme-toggle, .notifications {
+            padding: 8px;
+            border-radius: 8px;
+            background: transparent;
+            border: none;
+            color: var(--gray-300);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .theme-toggle:hover, .notifications:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--warning);
+        }
+        
+        .notification-btn {
+            position: relative;
+        }
+        
+        .notification-dot {
+            position: absolute;
+            top: 6px; right: 6px;
+            width: 6px; height: 6px;
+            background: var(--danger);
+            border-radius: 50%;
+        }
+        
+        .cta-button {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 18px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            font-size: 13px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.35);
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(16, 185, 129, 0.5);
+        }
+        
+        /* Main Content */
+        main {
+            position: relative;
+            z-index: 1;
+            max-width: 1920px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        /* Metrics Grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .metric-card {
+            position: relative;
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 1.5rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .metric-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .metric-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--card-color), transparent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+        
+        .metric-card:hover::after {
+            transform: scaleX(1);
+        }
+        
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        
+        .metric-icon {
+            width: 48px; height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .metric-change {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 8px;
+            border-radius: 9999px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .change-up {
+            background: rgba(239, 68, 68, 0.15);
+            color: var(--danger);
+        }
+        
+        .change-down {
+            background: rgba(34, 197, 94, 0.15);
+            color: var(--success);
+        }
+        
+        .metric-value {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        
+        .metric-label {
+            font-size: 14px;
+            color: var(--gray-400);
+        }
+        
+        /* Charts Grid */
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .chart-card {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 1.5rem;
+        }
+        
+        .chart-card.full-width {
+            grid-column: span 2;
+        }
+        
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+        
+        .chart-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        
+        .chart-title-icon {
+            width: 20px; height: 20px;
+        }
+        
+        .chart-subtitle {
+            font-size: 13px;
+            color: var(--gray-400);
+            margin-top: 4px;
+        }
+        
+        .chart-badge {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 10px;
+            border-radius: 6px;
+            background: rgba(139, 92, 246, 0.15);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--accent);
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 320px;
+        }
+        
+        /* Alerts Section */
+        .alerts-section {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 1.5rem;
+        }
+        
+        .alerts-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .alerts-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        
+        .live-indicator {
+            width: 8px; height: 8px;
+            background: var(--danger);
+            border-radius: 50%;
+            animation: pulse-dot 1s ease-in-out infinite;
+        }
+        
+        .alerts-controls {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .control-btn {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid var(--gray-600);
+            background: transparent;
+            color: var(--gray-300);
+        }
+        
+        .control-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .control-btn.active {
+            border-color: var(--danger);
+            color: var(--danger);
+            background: rgba(239, 68, 68, 0.1);
+        }
+        
+        .alerts-list {
+            max-height: 450px;
+            overflow-y: auto;
+            padding-right: 8px;
+        }
+        
+        .alert-item {
+            padding: 1rem;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .alert-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .alert-critical {
+            background: rgba(239, 68, 68, 0.08);
+            border-color: rgba(239, 68, 68, 0.25);
+        }
+        
+        .alert-warning {
+            background: rgba(245, 158, 11, 0.08);
+            border-color: rgba(245, 158, 11, 0.25);
+        }
+        
+        .alert-info {
+            background: rgba(59, 130, 246, 0.08);
+            border-color: rgba(59, 130, 246, 0.25);
+        }
+        
+        .alert-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        
+        .alert-badges {
+            display: flex;
+            gap: 6px;
+        }
+        
+        .alert-badge {
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        
+        .badge-critical {
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--danger);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+        
+        .badge-warning {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--warning);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+        
+        .badge-info {
+            background: rgba(59, 130, 246, 0.2);
+            color: #3B82F6;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+        
+        .badge-category {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--gray-300);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .alert-time {
+            font-size: 12px;
+            color: var(--gray-400);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .shap-btn {
+            padding: 4px 8px;
+            border-radius: 4px;
+            background: transparent;
+            border: none;
+            color: var(--secondary);
+            cursor: pointer;
+            font-size: 11px;
+        }
+        
+        .shap-btn:hover {
+            background: rgba(6, 182, 212, 0.15);
+        }
+        
+        .alert-title-text {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .alert-description {
+            font-size: 13px;
+            color: var(--gray-300);
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+        
+        .alert-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: var(--gray-400);
+        }
+        
+        .alert-meta-left {
+            display: flex;
+            gap: 16px;
+        }
+        
+        .alert-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .impact-badge {
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        
+        .impact-high {
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--danger);
+        }
+        
+        .impact-medium {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--warning);
+        }
+        
+        .impact-low {
+            background: rgba(34, 197, 94, 0.2);
+            color: var(--success);
+        }
+        
+        .shap-details {
+            margin-top: 12px;
+            padding: 12px;
+            border-radius: 8px;
+            background: rgba(15, 23, 42, 0.5);
+            font-size: 12px;
+            display: none;
+        }
+        
+        .shap-details.show {
+            display: block;
+        }
+        
+        .shap-grid {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 8px;
+        }
+        
+        .shap-label {
+            color: var(--gray-400);
+        }
+        
+        .shap-value {
+            color: var(--gray-200);
+            font-weight: 500;
+        }
+        
+        /* Footer */
+        footer {
+            position: relative;
+            z-index: 1;
+            margin-top: auto;
+            padding: 1.5rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(15, 23, 42, 0.5);
+        }
+        
+        .footer-content {
+            max-width: 1920px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: var(--gray-400);
+        }
+        
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            color: white;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 16px;
+        }
+        
+        .footer-link {
+            color: var(--gray-400);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-link:hover {
+            color: var(--primary);
+        }
+        
+        /* Scrollbar */
+        .alerts-list::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .alerts-list::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        
+        .alerts-list::-webkit-scrollbar-thumb {
+            background: var(--gray-600);
+            border-radius: 3px;
+        }
+        
+        .alerts-list::-webkit-scrollbar-thumb:hover {
+            background: var(--gray-500);
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .chart-card.full-width {
+                grid-column: span 1;
+            }
+            
+            nav {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .header-content {
+                padding: 0 1rem;
+            }
+            
+            main {
+                padding: 1rem;
+            }
+            
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .clock {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="bg-orb bg-orb-1"></div>
+        <div class="bg-orb bg-orb-2"></div>
+        <div class="bg-orb bg-orb-3"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo-icon">
+                    🛡️
+                    <div class="logo-pulse"></div>
+                </div>
+                <div class="logo-text">
+                    <h1>AI Supply Chain</h1>
+                    <p>Command Center v3.0</p>
+                </div>
+            </div>
+            
+            <nav>
+                <button class="active">Dashboard</button>
+                <button>Suppliers</button>
+                <button>Risk Intel</button>
+                <button>Forecasting</button>
+                <button>Compliance</button>
+            </nav>
+            
+            <div class="header-right">
+                <div class="live-badge">
+                    <div class="live-dot"></div>
+                    LIVE
+                </div>
+                
+                <div class="clock">
+                    ⏰
+                    <span id="live-clock">--:--:--</span>
+                </div>
+                
+                <button class="theme-toggle">☀️</button>
+                
+                <button class="notifications notification-btn">
+                    🔔
+                    <span class="notification-dot"></span>
+                </button>
+                
+                <button class="cta-button">
+                    ⚡ Run Analysis
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Metrics Row -->
+        <div class="metrics-grid">
+            <div class="metric-card" style="--card-color: #3B82F6;">
+                <div class="metric-header">
+                    <div class="metric-icon" style="background: linear-gradient(135deg, #3B82F6, #06B6D4);">
+                        👥
+                    </div>
+                    <div class="metric-change change-up">
+                        ↑ +3.2%
+                    </div>
+                </div>
+                <div class="metric-value" id="metric-suppliers">0</div>
+                <div class="metric-label">Total Suppliers Monitored</div>
+            </div>
+            
+            <div class="metric-card" style="--card-color: #F59E0B;">
+                <div class="metric-header">
+                    <div class="metric-icon" style="background: linear-gradient(135deg, #F59E0B, #F97316);">
+                        ⚠️
+                    </div>
+                    <div class="metric-change change-down">
+                        ↓ -2.1%
+                    </div>
+                </div>
+                <div class="metric-value" id="metric-risk">0</div>
+                <div class="metric-label">Avg Risk Score</div>
+            </div>
+            
+            <div class="metric-card" style="--card-color: #EF4444;">
+                <div class="metric-header">
+                    <div class="metric-icon" style="background: linear-gradient(135deg, #EF4444, #EC4899);">
+                        🚨
+                    </div>
+                    <div class="metric-change change-up">
+                        ↑ +5
+                    </div>
+                </div>
+                <div class="metric-value" id="metric-alerts">0</div>
+                <div class="metric-label">Active Alerts</div>
+            </div>
+            
+            <div class="metric-card" style="--card-color: #10B981;">
+                <div class="metric-header">
+                    <div class="metric-icon" style="background: linear-gradient(135deg, #10B981, #22C55E);">
+                        🧠
+                    </div>
+                    <div class="metric-change change-down">
+                        ↑ +1.2%
+                    </div>
+                </div>
+                <div class="metric-value" id="metric-accuracy">0%</div>
+                <div class="metric-label">AI Prediction Accuracy</div>
+            </div>
+        </div>
+
+        <!-- Charts Grid -->
+        <div class="charts-grid">
+            <!-- Risk Trend Analysis -->
+            <div class="chart-card full-width">
+                <div class="chart-header">
+                    <div>
+                        <div class="chart-title">
+                            <span class="chart-title-icon">📈</span>
+                            Risk Trend Analysis
+                        </div>
+                        <div class="chart-subtitle">6-month risk trajectory by category</div>
+                    </div>
+                    <div class="chart-badge">
+                        🤖 AI Powered
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="riskTrendChart"></canvas>
+                </div>
+            </div>
+            
+            <!-- Supplier Risk Distribution -->
+            <div class="chart-card">
+                <div class="chart-header">
+                    <div>
+                        <div class="chart-title">
+                            <span class="chart-title-icon">🥧</span>
+                            Supplier Risk Distribution
+                        </div>
+                        <div class="chart-subtitle">Risk concentration analysis</div>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="riskDistributionChart"></canvas>
+                </div>
+            </div>
+            
+            <!-- Regional Risk -->
+            <div class="chart-card">
+                <div class="chart-header">
+                    <div>
+                        <div class="chart-title">
+                            <span class="chart-title-icon">🌍</span>
+                            Regional Risk
+                        </div>
+                        <div class="chart-subtitle">Supplier concentration by geography</div>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="regionalRiskChart"></canvas>
+                </div>
+            </div>
+            
+            <!-- Demand Forecast -->
+            <div class="chart-card full-width">
+                <div class="chart-header">
+                    <div>
+                        <div class="chart-title">
+                            <span class="chart-title-icon">📊</span>
+                            Demand Forecast vs Actual
+                        </div>
+                        <div class="chart-subtitle">AI-powered demand prediction accuracy</div>
+                    </div>
+                    <div class="chart-badge">
+                        ✨ ML Model v2.4
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="demandForecastChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Live Alerts Section -->
+        <section class="alerts-section">
+            <div class="alerts-header">
+                <div class="alerts-title">
+                    <div class="live-indicator"></div>
+                    Live Risk Alerts
+                    <span style="font-size: 13px; color: var(--gray-400); font-weight: 400;">Real-time threat intelligence stream</span>
+                </div>
+                <div class="alerts-controls">
+                    <button class="control-btn active" id="pauseBtn" onclick="toggleLiveFeed()">
+                        ⏸ Pause
+                    </button>
+                    <div class="control-btn">
+                        📻 Real-time
+                    </div>
+                </div>
+            </div>
+            
+            <div class="alerts-list" id="alertsList">
+                <!-- Alerts will be populated by JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                🛡️ Supply Chain Command Center v3.0
+            </div>
+            <div id="footer-stats">
+                Data refreshed: Loading... • AI Engine: Active • Uptime: 99.97%
+            </div>
+            <div class="footer-links">
+                <a href="#" class="footer-link">📧 support@commandcenter.ai</a>
+                <a href="#" class="footer-link">Help</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ===== DATA =====
+        const riskTrendData = {
+            labels: ['Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan'],
+            datasets: [
+                {
+                    label: 'Overall Risk',
+                    data: [42, 52, 45, 58, 48, 38],
+                    borderColor: '#10B981',
+                    backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                    fill: true,
+                    tension: 0.4,
+                    borderWidth: 2
+                },
+                {
+                    label: 'Supply Chain',
+                    data: [38, 45, 40, 35, 30, 25],
+                    borderColor: '#06B6D4',
+                    backgroundColor: 'rgba(6, 182, 212, 0.1)',
+                    fill: true,
+                    tension: 0.4,
+                    borderWidth: 2
+                },
+                {
+                    label: 'Financial',
+                    data: [28, 32, 29, 35, 31, 27],
+                    borderColor: '#8B5CF6',
+                    tension: 0.4,
+                    borderWidth: 2
+                },
+                {
+                    label: 'Operational',
+                    data: [35, 38, 42, 39, 36, 33],
+                    borderColor: '#F59E0B',
+                    tension: 0.4,
+                    borderWidth: 2
+                }
+            ]
+        };
+
+        const riskDistributionData = {
+            labels: ['Critical', 'High', 'Medium', 'Low'],
+            datasets: [{
+                data: [1, 2, 3, 2],
+                backgroundColor: ['#EF4444', '#F59E0B', '#06B6D4', '#10B981'],
+                borderWidth: 0
+            }]
+        };
+
+        const regionalData = {
+            labels: ['Asia Pacific', 'Europe', 'North America', 'Latin America'],
+            datasets: [
+                {
+                    label: 'High Risk',
+                    data: [120, 65, 45, 89],
+                    backgroundColor: '#EF4444'
+                },
+                {
+                    label: 'Medium Risk',
+                    data: [280, 190, 150, 120],
+                    backgroundColor: '#F59E0B'
+                },
+                {
+                    label: 'Low Risk',
+                    data: [450, 380, 420, 180],
+                    backgroundColor: '#10B981'
+                }
+            ]
+        };
+
+        const demandForecastData = {
+            labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+            datasets: [
+                {
+                    label: 'Actual',
+                    data: [1150, 1120, 1280, 1320],
+                    backgroundColor: '#10B981',
+                    borderRadius: 4
+                },
+                {
+                    label: 'Predicted',
+                    data: [1180, 1200, 1250, 1300],
+                    backgroundColor: '#06B6D4',
+                    borderRadius: 4
+                }
+            ]
+        };
+
+        const alertsData = [
+            {
+                type: 'critical',
+                title: 'UFLPA Entity List Match Detected',
+                description: 'Shanghai Advanced Materials flagged for potential UFLPA Entity List connection.',
+                supplier: 'Shanghai Advanced Materials Co.',
+                region: 'Asia Pacific',
+                category: 'compliance',
+                impact: 'high',
+                time: new Date(Date.now() - 1800000)
+            },
+            {
+                type: 'warning',
+                title: 'EUDR Deforestation Risk Identified',
+                description: 'BrazilAgro sourcing area shows satellite-detected deforestation activity.',
+                supplier: 'BrazilAgro Commodities SA',
+                region: 'Latin America',
+                category: 'environmental',
+                impact: 'high',
+                time: new Date(Date.now() - 3600000)
+            },
+            {
+                type: 'info',
+                title: 'New Compliance Regulation Announced',
+                description: 'Global Manufacturing Co. affected by new EU CSRD reporting requirements.',
+                supplier: 'Global Manufacturing Co.',
+                region: 'North America',
+                category: 'regulatory',
+                impact: 'medium',
+                time: new Date(Date.now() - 7200000)
+            },
+            {
+                type: 'warning',
+                title: 'Port Congestion at Singapore',
+                description: 'AsiaLogistics shipments experiencing 3-5 day delays due to port congestion.',
+                supplier: 'AsiaLogistics Pte.',
+                region: 'Asia Pacific',
+                category: 'logistics',
+                impact: 'medium',
+                time: new Date(Date.now() - 10800000)
+            }
+        ];
+
+        // ===== CHARTS =====
+        const chartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#94A3B8',
+                        usePointStyle: true,
+                        padding: 15
+                    }
+                },
+                tooltip: {
+                    backgroundColor: 'rgba(15, 23, 42, 0.95)',
+                    titleColor: '#fff',
+                    bodyColor: '#cbd5e1',
+                    borderColor: 'rgba(255, 255, 255, 0.1)',
+                    borderWidth: 1,
+                    cornerRadius: 8,
+                    padding: 12
+                }
+            },
+            scales: {
+                x: {
+                    ticks: { color: '#94A3B8' },
+                    grid: { color: 'rgba(148, 163, 184, 0.1)' }
+                },
+                y: {
+                    ticks: { color: '#94A3B8' },
+                    grid: { color: 'rgba(148, 163, 184, 0.1)' }
+                }
+            }
+        };
+
+        // Initialize Charts
+        document.addEventListener('DOMContentLoaded', function() {
+            // Risk Trend Chart
+            new Chart(document.getElementById('riskTrendChart'), {
+                type: 'line',
+                data: riskTrendData,
+                options: chartOptions
+            });
+
+            // Risk Distribution Chart
+            new Chart(document.getElementById('riskDistributionChart'), {
+                type: 'doughnut',
+                data: riskDistributionData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: { color: '#94A3B8', usePointStyle: true }
+                        }
+                    }
+                }
+            });
+
+            // Regional Risk Chart
+            new Chart(document.getElementById('regionalRiskChart'), {
+                type: 'bar',
+                data: regionalData,
+                options: {
+                    ...chartOptions,
+                    indexAxis: 'y',
+                    scales: {
+                        x: { stacked: true, ticks: { color: '#94A3B8' }, grid: { color: 'rgba(148, 163, 184, 0.1)' } },
+                        y: { stacked: true, ticks: { color: '#94A3B8' }, grid: { display: false } }
+                    }
+                }
+            });
+
+            // Demand Forecast Chart
+            new Chart(document.getElementById('demandForecastChart'), {
+                type: 'bar',
+                data: demandForecastData,
+                options: chartOptions
+            });
+
+            // Initialize alerts
+            renderAlerts(alertsData);
+            
+            // Animate metrics
+            animateMetrics();
+            
+            // Start clock
+            updateClock();
+            setInterval(updateClock, 1000);
+            
+            // Update footer stats
+            updateFooterStats();
+            setInterval(updateFooterStats, 10000);
+        });
+
+        // ===== FUNCTIONS =====
+        function renderAlerts(alerts) {
+            const container = document.getElementById('alertsList');
+            container.innerHTML = alerts.map((alert, index) => `
+                <div class="alert-item alert-${alert.type}">
+                    <div class="alert-header-row">
+                        <div class="alert-badges">
+                            <span class="alert-badge badge-${alert.type}">${alert.type.toUpperCase()}</span>
+                            <span class="alert-badge badge-category">${alert.category}</span>
+                        </div>
+                        <div class="alert-time">
+                            ${formatTime(alert.time)}
+                            <button class="shap-btn" onclick="toggleShap(${index})">🧠 SHAP</button>
+                        </div>
+                    </div>
+                    <div class="alert-title-text">${alert.title}</div>
+                    <div class="alert-description">${alert.description}</div>
+                    <div class="alert-meta">
+                        <div class="alert-meta-left">
+                            <span class="alert-meta-item">🏢 ${alert.supplier}</span>
+                            <span class="alert-meta-item">📍 ${alert.region}</span>
+                        </div>
+                        <span class="impact-badge impact-${alert.impact}">Impact: ${alert.impact}</span>
+                    </div>
+                    <div class="shap-details" id="shap-${index}">
+                        <div class="shap-grid">
+                            <span class="shap-label">Feature Importance:</span>
+                            <span class="shap-value">Geopolitical: 42% | Financial: 28% | ESG: 18% | Operational: 12%</span>
+                            <span class="shap-label">Confidence:</span>
+                            <span class="shap-value">${(85 + Math.random() * 12).toFixed(1)}%</span>
+                            <span class="shap-label">Model Used:</span>
+                            <span class="shap-value">XGBoost Ensemble v3.2</span>
+                            <span class="shap-label">Data Points:</span>
+                            <span class="shap-value">${(1200 + Math.floor(Math.random() * 800)).toLocaleString()}</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function toggleShap(index) {
+            const el = document.getElementById(`shap-${index}`);
+            el.classList.toggle('show');
+        }
+
+        function formatTime(date) {
+            const diff = Date.now() - date.getTime();
+            const minutes = Math.floor(diff / 60000);
+            if (minutes < 1) return 'Just now';
+            if (minutes < 60) return `${minutes} min ago`;
+            const hours = Math.floor(minutes / 60);
+            if (hours < 24) return `${hours} hour${hours > 1 ? 's' : ''} ago`;
+            return `${Math.floor(hours / 24)} days ago`;
+        }
+
+        let isLive = true;
+
+        function toggleLiveFeed() {
+            isLive = !isLive;
+            const btn = document.getElementById('pauseBtn');
+            btn.textContent = isLive ? '⏸ Pause' : '▶ Resume';
+            btn.classList.toggle('active', isLive);
+        }
+
+        // Simulate live alerts
+        setInterval(() => {
+            if (!isLive) return;
+            
+            const newAlert = {
+                type: Math.random() > 0.7 ? 'warning' : 'info',
+                title: ['Currency fluctuation detected', 'Weather alert issued', 'Supplier performance update', 'Compliance check completed'][Math.floor(Math.random() * 4)],
+                description: 'Automated monitoring system update',
+                supplier: ['Shanghai Advanced Materials Co.', 'Nordic Components AB', 'BrazilAgro Commodities SA', 'TechComp Ltd.', 'EuroParts GmbH'][Math.floor(Math.random() * 5)],
+                region: ['Asia Pacific', 'Europe', 'North America', 'Latin America'][Math.floor(Math.random() * 4)],
+                category: ['operational', 'financial', 'environmental'][Math.floor(Math.random() * 3)],
+                impact: ['high', 'medium', 'low'][Math.floor(Math.random() * 3)],
+                time: new Date()
+            };
+            
+            alertsData.unshift(newAlert);
+            if (alertsData.length > 10) alertsData.pop();
+            renderAlerts(alertsData);
+        }, 15000);
+
+        function animateMetrics() {
+            const duration = 2000;
+            const steps = 60;
+            let step = 0;
+            
+            const targets = {
+                suppliers: 1247,
+                risk: 42.3,
+                alerts: 18,
+                accuracy: 94.2
+            };
+            
+            const interval = setInterval(() => {
+                step++;
+                const progress = step / steps;
+                const easeOut = 1 - Math.pow(1 - progress, 3);
+                
+                document.getElementById('metric-suppliers').textContent = 
+                    Math.round(targets.suppliers * easeOut).toLocaleString();
+                document.getElementById('metric-risk').textContent = 
+                    (targets.risk * easeOut).toFixed(1);
+                document.getElementById('metric-alerts').textContent = 
+                    Math.round(targets.alerts * easeOut);
+                document.getElementById('metric-accuracy').textContent = 
+                    (targets.accuracy * easeOut).toFixed(1) + '%';
+                
+                if (step >= steps) clearInterval(interval);
+            }, duration / steps);
+        }
+
+        function updateClock() {
+            const now = new Date();
+            document.getElementById('live-clock').textContent = 
+                now.toLocaleTimeString('en-US', { hour12: false });
+        }
+
+        function updateFooterStats() {
+            document.getElementById('footer-stats').textContent = 
+                `Data refreshed: ${new Date().toLocaleString()} • AI Engine: Active • Uptime: 99.97%`;
+        }
+    </script>
+</body>
+</html>
