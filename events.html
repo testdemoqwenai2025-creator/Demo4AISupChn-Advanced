@@ -190,9 +190,101 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(99,102,241,0.3);
         }
+        /* ===== FLOATING THEME TOGGLE (ALWAYS VISIBLE) ===== */
+        .floating-theme-toggle {
+            position: fixed !important;
+            bottom: 30px !important;
+            right: 30px !important;
+            z-index: 99999 !important;
+            background: linear-gradient(135deg, #6366f1, #06b6d4) !important;
+            color: white !important;
+            border: 4px solid rgba(255,255,255,0.5) !important;
+            padding: 18px 32px !important;
+            border-radius: 50px !important;
+            font-size: 18px !important;
+            font-weight: 900 !important;
+            cursor: pointer !important;
+            display: flex !important;
+            align-items: center !important;
+            gap: 12px !important;
+            box-shadow: 
+                0 8px 32px rgba(99,102,241,0.6),
+                0 0 80px rgba(99,102,241,0.4),
+                inset 0 2px 10px rgba(255,255,255,0.2) !important;
+            transition: all 0.3s ease !important;
+            animation: float-pulse 2.5s ease-in-out infinite !important;
+            text-transform: uppercase !important;
+            letter-spacing: 2px !important;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+        }
+        
+        @keyframes float-pulse {
+            0%, 100% { 
+                transform: translateY(0) scale(1); 
+                box-shadow: 
+                    0 8px 32px rgba(99,102,241,0.6),
+                    0 0 80px rgba(99,102,241,0.4);
+            }
+            50% { 
+                transform: translateY(-8px) scale(1.03); 
+                box-shadow: 
+                    0 12px 40px rgba(99,102,241,0.8),
+                    0 0 100px rgba(99,102,241,0.6);
+            }
+        }
+        
+        .floating-theme-toggle:hover {
+            transform: translateY(-12px) scale(1.08) !important;
+            box-shadow: 
+                0 16px 50px rgba(99,102,241,0.9),
+                0 0 120px rgba(99,102,241,0.7) !important;
+            background: linear-gradient(135deg, #7c3aed, #0891b2) !important;
+        }
+        
+        [data-theme="light"] .floating-theme-toggle {
+            background: linear-gradient(135deg, #f59e0b, #ef4444) !important;
+            box-shadow: 
+                0 8px 32px rgba(245,158,11,0.6),
+                0 0 80px rgba(245,158,11,0.4) !important;
+        }
+        
+        [data-theme="light"] .floating-theme-toggle:hover {
+            background: linear-gradient(135deg, #d97706, #dc2626) !important;
+            box-shadow: 
+                0 16px 50px rgba(245,158,11,0.9),
+                0 0 120px rgba(245,158,11,0.7) !important;
+        }
+        
+        .floating-toggle-icon {
+            font-size: 24px !important;
+            animation: icon-spin 3s linear infinite;
+        }
+        
+        @keyframes icon-spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Mobile adjustment */
+        @media (max-width: 768px) {
+            .floating-theme-toggle {
+                bottom: 20px !important;
+                right: 20px !important;
+                padding: 14px 24px !important;
+                font-size: 14px !important;
+            }
+            .floating-toggle-icon {
+                font-size: 20px !important;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- 🔴 FLOATING THEME TOGGLE (ALWAYS VISIBLE) -->
+    <button class="floating-theme-toggle" onclick="toggleTheme()" id="floatingToggle" aria-label="Toggle dark and light mode">
+        <span class="floating-toggle-icon" id="floatingIcon">🌙</span>
+        <span id="floatingText">☀️ LIGHT MODE</span>
+    </button>
     <div class="bg-animation"><div class="bg-orb bg-orb-1"></div><div class="bg-orb bg-orb-2"></div><div class="bg-orb bg-orb-3"></div></div>
 
     <header>
@@ -455,12 +547,24 @@
         lucide.createIcons();
 
         function toggleTheme() {
+            console.log('🎨 toggleTheme() called!');
+            
             const current = document.documentElement.getAttribute('data-theme');
             const next = current === 'dark' ? 'light' : 'dark';
+            
             document.documentElement.setAttribute('data-theme', next);
             localStorage.setItem('theme', next);
             
-            // Update ALL toggle buttons on page
+            // Update floating button
+            const floatingIcon = document.getElementById('floatingIcon');
+            const floatingText = document.getElementById('floatingText');
+            
+            if (floatingIcon && floatingText) {
+                floatingIcon.textContent = next === 'dark' ? '🌙' : '☀️';
+                floatingText.textContent = next === 'dark' ? '☀️ LIGHT MODE' : '🌙 DARK MODE';
+            }
+            
+            // Update header toggle buttons if they exist
             document.querySelectorAll('.toggle-thumb').forEach(thumb => {
                 thumb.innerHTML = next === 'dark' ? '<i data-lucide="moon" style="width:16px;height:16px;color:#6366f1"></i>' : '<i data-lucide="sun" style="width:16px;height:16px;color:#f59e0b"></i>';
             });
@@ -470,19 +574,31 @@
                 label.style.color = '#ffffff';
             });
             
-            lucide.createIcons();
-            if (typeof showToast === 'function') {
-                showToast(`✨ Switched to ${next.toUpperCase()} mode!`, 'success');
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
             }
-            if (typeof updateChartsTheme === 'function') {
-                updateChartsTheme();
-            }
+            
+            console.log(`✅ Theme switched to: ${next.toUpperCase()}`);
         }
 
         // Load saved theme
         document.addEventListener('DOMContentLoaded', () => {
             const savedTheme = localStorage.getItem('theme') || 'dark';
             document.documentElement.setAttribute('data-theme', savedTheme);
+        });
+        
+        // Initialize floating button state
+        window.addEventListener('DOMContentLoaded', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+            const floatingIcon = document.getElementById('floatingIcon');
+            const floatingText = document.getElementById('floatingText');
+            
+            if (floatingIcon && floatingText) {
+                floatingIcon.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
+                floatingText.textContent = currentTheme === 'dark' ? '☀️ LIGHT MODE' : '🌙 DARK MODE';
+            }
+            
+            console.log('✅ Floating toggle ready! Click bottom-right button.');
         });
 
         // Toast notification function
