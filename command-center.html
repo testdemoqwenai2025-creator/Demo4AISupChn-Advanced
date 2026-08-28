@@ -109,23 +109,30 @@
         .btn-lg { padding: 14px 28px; font-size: 15px; }
         .btn-icon { width: 40px; height: 40px; padding: 0; border-radius: 12px; }
 
-        /* Theme Toggle */
+        /* Theme Toggle - Enhanced Visibility */
         .theme-toggle { 
-            width: 54px; height: 28px; background: var(--bg-tertiary);
-            border: 1px solid var(--glass-border); border-radius: 9999px;
+            width: auto; height: 36px; background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(6,182,212,0.15));
+            border: 2px solid var(--accent-1); border-radius: 10px;
             cursor: pointer; transition: var(--transition); position: relative;
-            display: flex; align-items: center; padding: 3px;
+            display: flex; align-items: center; padding: 0 12px; gap: 6px;
+            box-shadow: 0 4px 16px rgba(99,102,241,0.25);
         }
-        .theme-toggle:hover { border-color: var(--accent-1); }
+        .theme-toggle:hover { 
+            border-color: var(--accent-2); 
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(99,102,241,0.4);
+        }
         .toggle-thumb {
-            width: 22px; height: 22px; border-radius: 50%;
+            width: 20px; height: 20px; border-radius: 50%;
             background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
-            transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 2px 8px rgba(99,102,241,0.4);
+            box-shadow: 0 2px 8px rgba(99,102,241,0.5);
         }
-        [data-theme="light"] .toggle-thumb { transform: translateX(26px); }
         .toggle-thumb svg { width: 12px; height: 12px; color: white; }
+        .theme-toggle-label {
+            font-size: 11px; font-weight: 700; color: var(--accent-1);
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
 
         /* Main Content */
         main { position: relative; z-index: 1; max-width: 1920px; margin: 0 auto; padding: 2rem; }
@@ -607,8 +614,9 @@
                     <i data-lucide="rocket" style="width:14px;"></i> Get Started
                 </button>
                 
-                <button class="theme-toggle" data-tooltip="Toggle dark/light mode" onclick="toggleTheme()">
+                <button class="theme-toggle" data-tooltip="Toggle dark/light mode" onclick="toggleTheme()" aria-label="Toggle dark and light mode">
                     <div class="toggle-thumb"><i data-lucide="moon"></i></div>
+                    <span class="theme-toggle-label">Theme</span>
                 </button>
 
                 <button onclick="toggleSearch()" class="btn btn-secondary btn-icon" data-tooltip="Search (⌘K)">
