@@ -765,6 +765,98 @@
                 display: none;
             }
         }
+            /* Elegant Theme Toggle (CC-consistent) */
+        .cc-theme-toggle {
+            width: 36px; height: 36px;
+            padding: 0; border-radius: 8px;
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--gray-400);
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+        }
+        .cc-theme-toggle:hover {
+            background: rgba(255,255,255,0.08);
+            color: var(--primary);
+            border-color: rgba(16,185,129,0.3);
+        }
+        .cc-theme-toggle svg { width: 16px; height: 16px; }
+
+        /* Light Theme */
+        [data-theme="light"] body {
+            background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 50%, #F8FAFC 100%);
+            color: #1E293B;
+        }
+        [data-theme="light"] header {
+            background: rgba(248,250,252,0.9);
+            border-bottom-color: rgba(0,0,0,0.08);
+        }
+        [data-theme="light"] nav a { color: #64748B; }
+        [data-theme="light"] nav a:hover { background: rgba(0,0,0,0.05); color: #1E293B; }
+        [data-theme="light"] nav a.active { color: white; }
+        [data-theme="light"] .glass {
+            background: rgba(255,255,255,0.7);
+            border-color: rgba(0,0,0,0.08);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+        }
+        [data-theme="light"] .glass:hover {
+            border-color: rgba(16,185,129,0.3);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        [data-theme="light"] .section-title,
+        [data-theme="light"] h1,
+        [data-theme="light"] h2,
+        [data-theme="light"] h3 { color: #0F172A; }
+        [data-theme="light"] .section-subtitle,
+        [data-theme="light"] .hero p,
+        [data-theme="light"] .team-card .bio,
+        [data-theme="light"] .value-card p,
+        [data-theme="light"] .contact-info li,
+        [data-theme="light"] .stat-label,
+        [data-theme="light"] .timeline-item p,
+        [data-theme="light"] .job-item { color: #475569; }
+        [data-theme="light"] .logo-text h1 {
+            background: linear-gradient(90deg, #059669, #0891B2);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        [data-theme="light"] .logo-text p { color: #94A3B8; }
+        [data-theme="light"] .badge {
+            color: #059669; border-color: rgba(0,0,0,0.12);
+            background: rgba(16,185,129,0.06);
+        }
+        [data-theme="light"] .gradient-text {
+            background: linear-gradient(90deg, #059669, #0891B2, #7C3AED);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        [data-theme="light"] .value-icon { background: rgba(16,185,129,0.08); }
+        [data-theme="light"] .job-item { background: rgba(0,0,0,0.02); }
+        [data-theme="light"] .btn-outline { border-color: rgba(0,0,0,0.15); color: #1E293B; }
+        [data-theme="light"] .btn-outline:hover { background: rgba(0,0,0,0.05); }
+        [data-theme="light"] .cc-theme-toggle {
+            color: #94A3B8;
+            border-color: rgba(0,0,0,0.1);
+        }
+        [data-theme="light"] .cc-theme-toggle:hover {
+            background: rgba(16,185,129,0.08);
+            color: #059669;
+            border-color: rgba(16,185,129,0.3);
+        }
+        [data-theme="light"] .bg-orb { opacity: 0.06; }
+        [data-theme="light"] footer { border-top-color: rgba(0,0,0,0.08); color: #94A3B8; }
+        [data-theme="light"] .social-link { border-color: rgba(0,0,0,0.12); color: #94A3B8; }
+        [data-theme="light"] .social-link:hover { background: rgba(16,185,129,0.1); border-color: #10B981; color: #10B981; }
+        [data-theme="light"] .team-card .role { color: #059669; }
+        [data-theme="light"] .timeline-year { background: rgba(16,185,129,0.08); color: #059669; }
+        [data-theme="light"] .job-badge { background: rgba(139,92,246,0.08); color: #7C3AED; }
+        [data-theme="light"] .stat-value {
+            background: linear-gradient(90deg, #059669, #0891B2);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        [data-theme="light"] .timeline-line { background: rgba(0,0,0,0.08); }
+        [data-theme="light"] .mobile-menu-btn { color: #334155; }
+        [data-theme="light"] nav.open { background: rgba(248,250,252,0.98); border-bottom: 1px solid rgba(0,0,0,0.08); }
     </style>
 </head>
 <body>
@@ -807,8 +899,6 @@
                     ⏰
                     <span id="live-clock">--:--:--</span>
                 </div>
-                
-                <button class="theme-toggle">☀️</button>
                 
                 <button class="notifications notification-btn">
                     🔔
@@ -992,356 +1082,24 @@
         </div>
     </footer>
 
-    <script>
-        // ===== DATA =====
-        const riskTrendData = {
-            labels: ['Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan'],
-            datasets: [
-                {
-                    label: 'Overall Risk',
-                    data: [42, 52, 45, 58, 48, 38],
-                    borderColor: '#10B981',
-                    backgroundColor: 'rgba(16, 185, 129, 0.1)',
-                    fill: true,
-                    tension: 0.4,
-                    borderWidth: 2
-                },
-                {
-                    label: 'Supply Chain',
-                    data: [38, 45, 40, 35, 30, 25],
-                    borderColor: '#06B6D4',
-                    backgroundColor: 'rgba(6, 182, 212, 0.1)',
-                    fill: true,
-                    tension: 0.4,
-                    borderWidth: 2
-                },
-                {
-                    label: 'Financial',
-                    data: [28, 32, 29, 35, 31, 27],
-                    borderColor: '#8B5CF6',
-                    tension: 0.4,
-                    borderWidth: 2
-                },
-                {
-                    label: 'Operational',
-                    data: [35, 38, 42, 39, 36, 33],
-                    borderColor: '#F59E0B',
-                    tension: 0.4,
-                    borderWidth: 2
-                }
-            ]
-        };
+    <script>    lucide.createIcons();
 
-        const riskDistributionData = {
-            labels: ['Critical', 'High', 'Medium', 'Low'],
-            datasets: [{
-                data: [1, 2, 3, 2],
-                backgroundColor: ['#EF4444', '#F59E0B', '#06B6D4', '#10B981'],
-                borderWidth: 0
-            }]
-        };
-
-        const regionalData = {
-            labels: ['Asia Pacific', 'Europe', 'North America', 'Latin America'],
-            datasets: [
-                {
-                    label: 'High Risk',
-                    data: [120, 65, 45, 89],
-                    backgroundColor: '#EF4444'
-                },
-                {
-                    label: 'Medium Risk',
-                    data: [280, 190, 150, 120],
-                    backgroundColor: '#F59E0B'
-                },
-                {
-                    label: 'Low Risk',
-                    data: [450, 380, 420, 180],
-                    backgroundColor: '#10B981'
-                }
-            ]
-        };
-
-        const demandForecastData = {
-            labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
-            datasets: [
-                {
-                    label: 'Actual',
-                    data: [1150, 1120, 1280, 1320],
-                    backgroundColor: '#10B981',
-                    borderRadius: 4
-                },
-                {
-                    label: 'Predicted',
-                    data: [1180, 1200, 1250, 1300],
-                    backgroundColor: '#06B6D4',
-                    borderRadius: 4
-                }
-            ]
-        };
-
-        const alertsData = [
-            {
-                type: 'critical',
-                title: 'UFLPA Entity List Match Detected',
-                description: 'Shanghai Advanced Materials flagged for potential UFLPA Entity List connection.',
-                supplier: 'Shanghai Advanced Materials Co.',
-                region: 'Asia Pacific',
-                category: 'compliance',
-                impact: 'high',
-                time: new Date(Date.now() - 1800000)
-            },
-            {
-                type: 'warning',
-                title: 'EUDR Deforestation Risk Identified',
-                description: 'BrazilAgro sourcing area shows satellite-detected deforestation activity.',
-                supplier: 'BrazilAgro Commodities SA',
-                region: 'Latin America',
-                category: 'environmental',
-                impact: 'high',
-                time: new Date(Date.now() - 3600000)
-            },
-            {
-                type: 'info',
-                title: 'New Compliance Regulation Announced',
-                description: 'Global Manufacturing Co. affected by new EU CSRD reporting requirements.',
-                supplier: 'Global Manufacturing Co.',
-                region: 'North America',
-                category: 'regulatory',
-                impact: 'medium',
-                time: new Date(Date.now() - 7200000)
-            },
-            {
-                type: 'warning',
-                title: 'Port Congestion at Singapore',
-                description: 'AsiaLogistics shipments experiencing 3-5 day delays due to port congestion.',
-                supplier: 'AsiaLogistics Pte.',
-                region: 'Asia Pacific',
-                category: 'logistics',
-                impact: 'medium',
-                time: new Date(Date.now() - 10800000)
-            }
-        ];
-
-        // ===== CHARTS =====
-        const chartOptions = {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    labels: {
-                        color: '#94A3B8',
-                        usePointStyle: true,
-                        padding: 15
-                    }
-                },
-                tooltip: {
-                    backgroundColor: 'rgba(15, 23, 42, 0.95)',
-                    titleColor: '#fff',
-                    bodyColor: '#cbd5e1',
-                    borderColor: 'rgba(255, 255, 255, 0.1)',
-                    borderWidth: 1,
-                    cornerRadius: 8,
-                    padding: 12
-                }
-            },
-            scales: {
-                x: {
-                    ticks: { color: '#94A3B8' },
-                    grid: { color: 'rgba(148, 163, 184, 0.1)' }
-                },
-                y: {
-                    ticks: { color: '#94A3B8' },
-                    grid: { color: 'rgba(148, 163, 184, 0.1)' }
-                }
-            }
-        };
-
-        // Initialize Charts
-        document.addEventListener('DOMContentLoaded', function() {
-            // Risk Trend Chart
-            new Chart(document.getElementById('riskTrendChart'), {
-                type: 'line',
-                data: riskTrendData,
-                options: chartOptions
-            });
-
-            // Risk Distribution Chart
-            new Chart(document.getElementById('riskDistributionChart'), {
-                type: 'doughnut',
-                data: riskDistributionData,
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
-                            labels: { color: '#94A3B8', usePointStyle: true }
-                        }
-                    }
-                }
-            });
-
-            // Regional Risk Chart
-            new Chart(document.getElementById('regionalRiskChart'), {
-                type: 'bar',
-                data: regionalData,
-                options: {
-                    ...chartOptions,
-                    indexAxis: 'y',
-                    scales: {
-                        x: { stacked: true, ticks: { color: '#94A3B8' }, grid: { color: 'rgba(148, 163, 184, 0.1)' } },
-                        y: { stacked: true, ticks: { color: '#94A3B8' }, grid: { display: false } }
-                    }
-                }
-            });
-
-            // Demand Forecast Chart
-            new Chart(document.getElementById('demandForecastChart'), {
-                type: 'bar',
-                data: demandForecastData,
-                options: chartOptions
-            });
-
-            // Initialize alerts
-            renderAlerts(alertsData);
-            
-            // Animate metrics
-            animateMetrics();
-            
-            // Start clock
-            updateClock();
-            setInterval(updateClock, 1000);
-            
-            // Update footer stats
-            updateFooterStats();
-            setInterval(updateFooterStats, 10000);
+    function toggleTheme() {
+        var current = document.documentElement.getAttribute('data-theme');
+        var next = current === 'light' ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        document.querySelectorAll('.cc-theme-toggle').forEach(function(btn) {
+            btn.innerHTML = next === 'dark' ? '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>' : '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>';
         });
-
-        // ===== FUNCTIONS =====
-        function renderAlerts(alerts) {
-            const container = document.getElementById('alertsList');
-            container.innerHTML = alerts.map((alert, index) => `
-                <div class="alert-item alert-${alert.type}">
-                    <div class="alert-header-row">
-                        <div class="alert-badges">
-                            <span class="alert-badge badge-${alert.type}">${alert.type.toUpperCase()}</span>
-                            <span class="alert-badge badge-category">${alert.category}</span>
-                        </div>
-                        <div class="alert-time">
-                            ${formatTime(alert.time)}
-                            <button class="shap-btn" onclick="toggleShap(${index})">🧠 SHAP</button>
-                        </div>
-                    </div>
-                    <div class="alert-title-text">${alert.title}</div>
-                    <div class="alert-description">${alert.description}</div>
-                    <div class="alert-meta">
-                        <div class="alert-meta-left">
-                            <span class="alert-meta-item">🏢 ${alert.supplier}</span>
-                            <span class="alert-meta-item">📍 ${alert.region}</span>
-                        </div>
-                        <span class="impact-badge impact-${alert.impact}">Impact: ${alert.impact}</span>
-                    </div>
-                    <div class="shap-details" id="shap-${index}">
-                        <div class="shap-grid">
-                            <span class="shap-label">Feature Importance:</span>
-                            <span class="shap-value">Geopolitical: 42% | Financial: 28% | ESG: 18% | Operational: 12%</span>
-                            <span class="shap-label">Confidence:</span>
-                            <span class="shap-value">${(85 + Math.random() * 12).toFixed(1)}%</span>
-                            <span class="shap-label">Model Used:</span>
-                            <span class="shap-value">XGBoost Ensemble v3.2</span>
-                            <span class="shap-label">Data Points:</span>
-                            <span class="shap-value">${(1200 + Math.floor(Math.random() * 800)).toLocaleString()}</span>
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function toggleShap(index) {
-            const el = document.getElementById(`shap-${index}`);
-            el.classList.toggle('show');
-        }
-
-        function formatTime(date) {
-            const diff = Date.now() - date.getTime();
-            const minutes = Math.floor(diff / 60000);
-            if (minutes < 1) return 'Just now';
-            if (minutes < 60) return `${minutes} min ago`;
-            const hours = Math.floor(minutes / 60);
-            if (hours < 24) return `${hours} hour${hours > 1 ? 's' : ''} ago`;
-            return `${Math.floor(hours / 24)} days ago`;
-        }
-
-        let isLive = true;
-
-        function toggleLiveFeed() {
-            isLive = !isLive;
-            const btn = document.getElementById('pauseBtn');
-            btn.textContent = isLive ? '⏸ Pause' : '▶ Resume';
-            btn.classList.toggle('active', isLive);
-        }
-
-        // Simulate live alerts
-        setInterval(() => {
-            if (!isLive) return;
-            
-            const newAlert = {
-                type: Math.random() > 0.7 ? 'warning' : 'info',
-                title: ['Currency fluctuation detected', 'Weather alert issued', 'Supplier performance update', 'Compliance check completed'][Math.floor(Math.random() * 4)],
-                description: 'Automated monitoring system update',
-                supplier: ['Shanghai Advanced Materials Co.', 'Nordic Components AB', 'BrazilAgro Commodities SA', 'TechComp Ltd.', 'EuroParts GmbH'][Math.floor(Math.random() * 5)],
-                region: ['Asia Pacific', 'Europe', 'North America', 'Latin America'][Math.floor(Math.random() * 4)],
-                category: ['operational', 'financial', 'environmental'][Math.floor(Math.random() * 3)],
-                impact: ['high', 'medium', 'low'][Math.floor(Math.random() * 3)],
-                time: new Date()
-            };
-            
-            alertsData.unshift(newAlert);
-            if (alertsData.length > 10) alertsData.pop();
-            renderAlerts(alertsData);
-        }, 15000);
-
-        function animateMetrics() {
-            const duration = 2000;
-            const steps = 60;
-            let step = 0;
-            
-            const targets = {
-                suppliers: 1247,
-                risk: 42.3,
-                alerts: 18,
-                accuracy: 94.2
-            };
-            
-            const interval = setInterval(() => {
-                step++;
-                const progress = step / steps;
-                const easeOut = 1 - Math.pow(1 - progress, 3);
-                
-                document.getElementById('metric-suppliers').textContent = 
-                    Math.round(targets.suppliers * easeOut).toLocaleString();
-                document.getElementById('metric-risk').textContent = 
-                    (targets.risk * easeOut).toFixed(1);
-                document.getElementById('metric-alerts').textContent = 
-                    Math.round(targets.alerts * easeOut);
-                document.getElementById('metric-accuracy').textContent = 
-                    (targets.accuracy * easeOut).toFixed(1) + '%';
-                
-                if (step >= steps) clearInterval(interval);
-            }, duration / steps);
-        }
-
-        function updateClock() {
-            const now = new Date();
-            document.getElementById('live-clock').textContent = 
-                now.toLocaleTimeString('en-US', { hour12: false });
-        }
-
-        function updateFooterStats() {
-            document.getElementById('footer-stats').textContent = 
-                `Data refreshed: ${new Date().toLocaleString()} • AI Engine: Active • Uptime: 99.97%`;
-        }
-    </script>
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+        var saved = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', saved);
+        document.querySelectorAll('.cc-theme-toggle').forEach(function(btn) {
+            btn.innerHTML = saved === 'dark' ? '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>' : '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>';
+        });
+    });</script>
 </body>
 </html>

@@ -128,173 +128,111 @@
             --glass-bg: rgba(255, 255, 255, 0.8);
             --glass-border: rgba(0, 0, 0, 0.1);
         }
-        /* ===== SUPER VISIBLE THEME TOGGLE ===== */
-        .theme-toggle { 
-            width: auto; min-width: 120px; height: 44px; 
-            background: linear-gradient(135deg, #6366f1, #06b6d4) !important;
-            border: 3px solid rgba(255,255,255,0.3) !important; 
-            border-radius: 22px !important;
-            cursor: pointer; transition: all 0.3s ease !important; 
-            display: flex !important; align-items: center; justify-content: center;
-            padding: 0 18px !important; gap: 10px !important;
-            box-shadow: 0 4px 20px rgba(99,102,241,0.5), 0 0 40px rgba(99,102,241,0.2) !important;
-            position: relative;
-            animation: pulse-glow 2s ease-in-out infinite !important;
-            z-index: 1000 !important;
-        }
-        @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 4px 20px rgba(99,102,241,0.5), 0 0 40px rgba(99,102,241,0.2); }
-            50% { box-shadow: 0 4px 30px rgba(99,102,241,0.7), 0 0 60px rgba(99,102,241,0.4); }
-        }
-        .theme-toggle:hover { 
-            transform: translateY(-3px) scale(1.05) !important;
-            box-shadow: 0 8px 35px rgba(99,102,241,0.7), 0 0 70px rgba(99,102,241,0.5) !important;
-            background: linear-gradient(135deg, #7c3aed, #0891b2) !important;
-        }
-        .toggle-thumb {
-            width: 26px; height: 26px; border-radius: 50% !important;
-            background: rgba(255,255,255,0.95) !important;
-            display: flex !important; align-items: center; justify-content: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2) !important;
-        }
-        .toggle-thumb svg, .toggle-thumb i { 
-            width: 16px !important; height: 16px !important; 
-            color: #6366f1 !important; 
-        }
-        .theme-toggle-label {
-            font-size: 13px !important; font-weight: 800 !important; 
-            color: #ffffff !important;
-            text-transform: uppercase !important; letter-spacing: 1px !important;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.3) !important;
-        }
-        
+
         /* Light mode toggle styling */
-        [data-theme="light"] .theme-toggle {
-            background: linear-gradient(135deg, #f59e0b, #ef4444) !important;
-            box-shadow: 0 4px 20px rgba(245,158,11,0.5), 0 0 40px rgba(245,158,11,0.2) !important;
-        }
-        [data-theme="light"] .theme-toggle:hover {
-            background: linear-gradient(135deg, #d97706, #dc2626) !important;
-            box-shadow: 0 8px 35px rgba(245,158,11,0.7), 0 0 70px rgba(245,158,11,0.5) !important;
-        }
-        .page-nav-buttons {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 1rem;
-        }
-        .page-nav-buttons .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 13px;
-            padding: 8px 16px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-        .page-nav-buttons .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(99,102,241,0.3);
-        }
         .btn-secondary { background: rgba(100,116,139,0.3); color: white; border: 1px solid rgba(255,255,255,0.15); }
         .btn-secondary:hover { background: rgba(100,116,139,0.5); }
         .btn-sm { padding: 8px 16px; font-size: 13px; }
         @keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
-        /* ===== FLOATING THEME TOGGLE (ALWAYS VISIBLE) ===== */
-        .floating-theme-toggle {
-            position: fixed !important;
-            bottom: 30px !important;
-            right: 30px !important;
-            z-index: 99999 !important;
-            background: linear-gradient(135deg, #6366f1, #06b6d4) !important;
-            color: white !important;
-            border: 4px solid rgba(255,255,255,0.5) !important;
-            padding: 18px 32px !important;
-            border-radius: 50px !important;
-            font-size: 18px !important;
-            font-weight: 900 !important;
-            cursor: pointer !important;
-            display: flex !important;
-            align-items: center !important;
-            gap: 12px !important;
-            box-shadow: 
-                0 8px 32px rgba(99,102,241,0.6),
-                0 0 80px rgba(99,102,241,0.4),
-                inset 0 2px 10px rgba(255,255,255,0.2) !important;
-            transition: all 0.3s ease !important;
-            animation: float-pulse 2.5s ease-in-out infinite !important;
-            text-transform: uppercase !important;
-            letter-spacing: 2px !important;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
-        }
-        
-        @keyframes float-pulse {
-            0%, 100% { 
-                transform: translateY(0) scale(1); 
-                box-shadow: 
-                    0 8px 32px rgba(99,102,241,0.6),
-                    0 0 80px rgba(99,102,241,0.4);
-            }
-            50% { 
-                transform: translateY(-8px) scale(1.03); 
-                box-shadow: 
-                    0 12px 40px rgba(99,102,241,0.8),
-                    0 0 100px rgba(99,102,241,0.6);
-            }
-        }
-        
-        .floating-theme-toggle:hover {
-            transform: translateY(-12px) scale(1.08) !important;
-            box-shadow: 
-                0 16px 50px rgba(99,102,241,0.9),
-                0 0 120px rgba(99,102,241,0.7) !important;
-            background: linear-gradient(135deg, #7c3aed, #0891b2) !important;
-        }
-        
-        [data-theme="light"] .floating-theme-toggle {
-            background: linear-gradient(135deg, #f59e0b, #ef4444) !important;
-            box-shadow: 
-                0 8px 32px rgba(245,158,11,0.6),
-                0 0 80px rgba(245,158,11,0.4) !important;
-        }
-        
-        [data-theme="light"] .floating-theme-toggle:hover {
-            background: linear-gradient(135deg, #d97706, #dc2626) !important;
-            box-shadow: 
-                0 16px 50px rgba(245,158,11,0.9),
-                0 0 120px rgba(245,158,11,0.7) !important;
-        }
-        
-        .floating-toggle-icon {
-            font-size: 24px !important;
-            animation: icon-spin 3s linear infinite;
-        }
-        
-        @keyframes icon-spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
+
         /* Mobile adjustment */
         @media (max-width: 768px) {
-            .floating-theme-toggle {
-                bottom: 20px !important;
-                right: 20px !important;
-                padding: 14px 24px !important;
-                font-size: 14px !important;
-            }
-            .floating-toggle-icon {
-                font-size: 20px !important;
-            }
         }
+            /* Elegant Theme Toggle (CC-consistent) */
+        .cc-theme-toggle {
+            width: 36px; height: 36px;
+            padding: 0; border-radius: 8px;
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--gray-400);
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+        }
+        .cc-theme-toggle:hover {
+            background: rgba(255,255,255,0.08);
+            color: var(--primary);
+            border-color: rgba(16,185,129,0.3);
+        }
+        .cc-theme-toggle svg { width: 16px; height: 16px; }
+
+        /* Light Theme */
+        [data-theme="light"] body {
+            background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 50%, #F8FAFC 100%);
+            color: #1E293B;
+        }
+        [data-theme="light"] header {
+            background: rgba(248,250,252,0.9);
+            border-bottom-color: rgba(0,0,0,0.08);
+        }
+        [data-theme="light"] nav a { color: #64748B; }
+        [data-theme="light"] nav a:hover { background: rgba(0,0,0,0.05); color: #1E293B; }
+        [data-theme="light"] nav a.active { color: white; }
+        [data-theme="light"] .glass {
+            background: rgba(255,255,255,0.7);
+            border-color: rgba(0,0,0,0.08);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+        }
+        [data-theme="light"] .glass:hover {
+            border-color: rgba(16,185,129,0.3);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        [data-theme="light"] .section-title,
+        [data-theme="light"] h1,
+        [data-theme="light"] h2,
+        [data-theme="light"] h3 { color: #0F172A; }
+        [data-theme="light"] .section-subtitle,
+        [data-theme="light"] .hero p,
+        [data-theme="light"] .team-card .bio,
+        [data-theme="light"] .value-card p,
+        [data-theme="light"] .contact-info li,
+        [data-theme="light"] .stat-label,
+        [data-theme="light"] .timeline-item p,
+        [data-theme="light"] .job-item { color: #475569; }
+        [data-theme="light"] .logo-text h1 {
+            background: linear-gradient(90deg, #059669, #0891B2);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        [data-theme="light"] .logo-text p { color: #94A3B8; }
+        [data-theme="light"] .badge {
+            color: #059669; border-color: rgba(0,0,0,0.12);
+            background: rgba(16,185,129,0.06);
+        }
+        [data-theme="light"] .gradient-text {
+            background: linear-gradient(90deg, #059669, #0891B2, #7C3AED);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        [data-theme="light"] .value-icon { background: rgba(16,185,129,0.08); }
+        [data-theme="light"] .job-item { background: rgba(0,0,0,0.02); }
+        [data-theme="light"] .btn-outline { border-color: rgba(0,0,0,0.15); color: #1E293B; }
+        [data-theme="light"] .btn-outline:hover { background: rgba(0,0,0,0.05); }
+        [data-theme="light"] .cc-theme-toggle {
+            color: #94A3B8;
+            border-color: rgba(0,0,0,0.1);
+        }
+        [data-theme="light"] .cc-theme-toggle:hover {
+            background: rgba(16,185,129,0.08);
+            color: #059669;
+            border-color: rgba(16,185,129,0.3);
+        }
+        [data-theme="light"] .bg-orb { opacity: 0.06; }
+        [data-theme="light"] footer { border-top-color: rgba(0,0,0,0.08); color: #94A3B8; }
+        [data-theme="light"] .social-link { border-color: rgba(0,0,0,0.12); color: #94A3B8; }
+        [data-theme="light"] .social-link:hover { background: rgba(16,185,129,0.1); border-color: #10B981; color: #10B981; }
+        [data-theme="light"] .team-card .role { color: #059669; }
+        [data-theme="light"] .timeline-year { background: rgba(16,185,129,0.08); color: #059669; }
+        [data-theme="light"] .job-badge { background: rgba(139,92,246,0.08); color: #7C3AED; }
+        [data-theme="light"] .stat-value {
+            background: linear-gradient(90deg, #059669, #0891B2);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        [data-theme="light"] .timeline-line { background: rgba(0,0,0,0.08); }
+        [data-theme="light"] .mobile-menu-btn { color: #334155; }
+        [data-theme="light"] nav.open { background: rgba(248,250,252,0.98); border-bottom: 1px solid rgba(0,0,0,0.08); }
     </style>
 </head>
 <body>
-    <!-- 🔴 FLOATING THEME TOGGLE (ALWAYS VISIBLE) -->
-    <button class="floating-theme-toggle" onclick="toggleTheme()" id="floatingToggle" aria-label="Toggle dark and light mode">
-        <span class="floating-toggle-icon" id="floatingIcon">🌙</span>
-        <span id="floatingText">☀️ LIGHT MODE</span>
-    </button>
     <div class="bg-animation"><div class="bg-orb bg-orb-1"></div><div class="bg-orb bg-orb-2"></div><div class="bg-orb bg-orb-3"></div></div>
 
     <header>
@@ -317,25 +255,12 @@
                 <a href="./events.html">Events</a>
                 <a href="./support.html">Support</a>
             </nav>
-            <div style="display:flex;align-items:center;gap:12px;">
-                <button class="theme-toggle" data-tooltip="🌙 Toggle Dark/Light Mode ☀️" onclick="toggleTheme()" aria-label="Toggle dark and light mode">
-                    <div class="toggle-thumb"><i data-lucide="moon" style="width:16px;height:16px;color:#6366f1"></i></div>
-                    <span class="theme-toggle-label">☀️ LIGHT</span>
-                </button>
-                <a href="./command-center.html" class="btn btn-primary" style="padding:8px 16px;font-size:13px;">Launch App</a>
-            </div>
+                        <button class="cc-theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg></button>
+            <a href="./command-center.html" class="btn btn-primary" style="padding:8px 16px;font-size:13px;">Launch App</a>
         </div>
     </header>
 
     <main>
-        <div class="page-nav-buttons">
-            <button onclick="window.history.back()" class="btn btn-secondary btn-sm" data-tooltip="Go Back">
-                <i data-lucide="arrow-left" style="width:16px;"></i> Back
-            </button>
-            <a href="./index.html" class="btn btn-primary btn-sm" data-tooltip="Home">
-                <i data-lucide="home" style="width:16px;"></i> Home
-            </a>
-        </div>
         <!-- Hero -->
         <section class="hero">
             <div class="badge"><i data-lucide="star" style="width:16px;height:16px;"></i> Customer Success</div>
@@ -506,77 +431,24 @@
 
     <footer><p>&copy; 2026 AI Supply Chain Advanced. All rights reserved. | <a href="./support.html">Support</a></p></footer>
 
-    <script>
-        lucide.createIcons();
+    <script>    lucide.createIcons();
 
-        function toggleTheme() {
-            console.log('🎨 toggleTheme() called!');
-            
-            const current = document.documentElement.getAttribute('data-theme');
-            const next = current === 'dark' ? 'light' : 'dark';
-            
-            document.documentElement.setAttribute('data-theme', next);
-            localStorage.setItem('theme', next);
-            
-            // Update floating button
-            const floatingIcon = document.getElementById('floatingIcon');
-            const floatingText = document.getElementById('floatingText');
-            
-            if (floatingIcon && floatingText) {
-                floatingIcon.textContent = next === 'dark' ? '🌙' : '☀️';
-                floatingText.textContent = next === 'dark' ? '☀️ LIGHT MODE' : '🌙 DARK MODE';
-            }
-            
-            // Update header toggle buttons if they exist
-            document.querySelectorAll('.toggle-thumb').forEach(thumb => {
-                thumb.innerHTML = next === 'dark' ? '<i data-lucide="moon" style="width:16px;height:16px;color:#6366f1"></i>' : '<i data-lucide="sun" style="width:16px;height:16px;color:#f59e0b"></i>';
-            });
-            
-            document.querySelectorAll('.theme-toggle-label').forEach(label => {
-                label.textContent = next === 'dark' ? '☀️ LIGHT' : '🌙 DARK';
-                label.style.color = '#ffffff';
-            });
-            
-            if (typeof lucide !== 'undefined') {
-                lucide.createIcons();
-            }
-            
-            console.log(`✅ Theme switched to: ${next.toUpperCase()}`);
-        }
-
-        // Load saved theme
-        document.addEventListener('DOMContentLoaded', () => {
-            const savedTheme = localStorage.getItem('theme') || 'dark';
-            document.documentElement.setAttribute('data-theme', savedTheme);
+    function toggleTheme() {
+        var current = document.documentElement.getAttribute('data-theme');
+        var next = current === 'light' ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        document.querySelectorAll('.cc-theme-toggle').forEach(function(btn) {
+            btn.innerHTML = next === 'dark' ? '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>' : '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>';
         });
-        
-        // Initialize floating button state
-        window.addEventListener('DOMContentLoaded', () => {
-            const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
-            const floatingIcon = document.getElementById('floatingIcon');
-            const floatingText = document.getElementById('floatingText');
-            
-            if (floatingIcon && floatingText) {
-                floatingIcon.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
-                floatingText.textContent = currentTheme === 'dark' ? '☀️ LIGHT MODE' : '🌙 DARK MODE';
-            }
-            
-            console.log('✅ Floating toggle ready! Click bottom-right button.');
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+        var saved = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', saved);
+        document.querySelectorAll('.cc-theme-toggle').forEach(function(btn) {
+            btn.innerHTML = saved === 'dark' ? '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>' : '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>';
         });
-
-        // Toast notification function
-        function showToast(message, type = 'info') {
-            const toast = document.createElement('div');
-            toast.className = `toast toast-${type}`;
-            toast.textContent = message;
-            toast.style.cssText = `
-                position: fixed; bottom: 20px; right: 20px; padding: 12px 24px;
-                border-radius: 8px; color: white; font-size: 14px; z-index: 10000;
-                animation: slideIn 0.3s ease; background: ${type === 'success' ? '#10b981' : type === 'error' ? '#ef4444' : '#6366f1'};
-            `;
-            document.body.appendChild(toast);
-            setTimeout(() => toast.remove(), 3000);
-        }
-    </script>
+    });</script>
 </body>
 </html>
